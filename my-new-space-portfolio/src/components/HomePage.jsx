@@ -1,0 +1,76 @@
+import { useState } from 'react';
+import './HomePage.css';
+import PropTypes from 'prop-types';
+import profileImg from '../assets/profile.png';
+import moonImg from '../assets/moon.png';
+
+function HomePage({ onNavigate, currentPage }) {
+  const [leftMoonStyle, setLeftMoonStyle] = useState({ transform: 'translateX(-50%)' });
+  const [rightMoonStyle, setRightMoonStyle] = useState({ transform: 'translateX(50%)' });
+
+  const handleMoonClick = (direction) => {
+    if (currentPage === 'home') {
+      // Going from home to another page
+      if (direction === 'left') {
+        setLeftMoonStyle({ transform: 'translateX(150%)', transition: 'transform 0.8s ease-in-out' });
+      } else {
+        setRightMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
+      }
+      setTimeout(() => {
+        onNavigate(direction);
+        setLeftMoonStyle({ transform: 'translateX(-50%)' });
+        setRightMoonStyle({ transform: 'translateX(50%)' });
+      }, 800);
+    } else {
+      // Going back to home - slide in the opposite direction
+      const slideDirection = currentPage === 'projects' ? 'right' : 'left';
+      if (slideDirection === 'left') {
+        setLeftMoonStyle({ transform: 'translateX(150%)', transition: 'transform 0.8s ease-in-out' });
+      } else {
+        setRightMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
+      }
+      setTimeout(() => {
+        onNavigate('home');
+        setLeftMoonStyle({ transform: 'translateX(-50%)' });
+        setRightMoonStyle({ transform: 'translateX(50%)' });
+      }, 800);
+    }
+  };
+
+  return (
+    <div className={`home-page ${currentPage !== 'home' ? 'page-inactive' : ''}`}>
+      <div className="moon left-moon" 
+        onClick={() => handleMoonClick('left')} 
+        style={{ 
+          ...leftMoonStyle,
+          backgroundImage: `url(${moonImg})`
+        }}>
+      </div>
+      
+      <div className="content-container">
+        <div className="profile-container">
+          <img src={profileImg} alt="Jonas Profile" className="profile-image" />
+          <div className="intro-text">
+            <h1>Hello, I&apos;m Jonas</h1>
+            <p>I specialize in front-end development</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="moon right-moon" 
+        onClick={() => handleMoonClick('right')} 
+        style={{ 
+          ...rightMoonStyle,
+          backgroundImage: `url(${moonImg})`
+        }}>
+      </div>
+    </div>
+  );
+}
+
+HomePage.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
+  currentPage: PropTypes.string.isRequired
+};
+
+export default HomePage; 

@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0B0B1F, #202060);
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-container {
+  display: flex;
+  width: 300vw;
+  height: 100vh;
+  position: relative;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide-left {
+  transform: translateX(33.33%);
+}
+
+.slide-right {
+  transform: translateX(-33.33%);
+}

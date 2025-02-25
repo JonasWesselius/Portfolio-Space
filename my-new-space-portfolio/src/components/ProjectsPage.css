@@ -1,0 +1,33 @@
+/* Empty file for now */
+
+.projects-page {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: linear-gradient(to bottom, #0B0B1F, #202060); /* Add background to match HomePage */
+}
+
+.moon {
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+}
+
+.right-moon {
+  transform: translateX(50%);
+}
+
+.moon:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+/* Remove .right-moon class as we're using margin instead */ 
