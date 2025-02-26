@@ -6,6 +6,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, #0B0B1F, #202060);
 }
 
 .moon {
@@ -16,7 +18,7 @@
   border-radius: 50%;
   position: relative;
   cursor: pointer;
-  transition: all 0.8s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0);
 }
 
@@ -26,5 +28,4 @@
 
 .moon:hover {
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
-  transform: translateX(-50%) scale(1.1);
 } 

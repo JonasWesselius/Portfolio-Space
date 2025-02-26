@@ -2,38 +2,43 @@ import { useState } from 'react'
 import HomePage from './components/HomePage'
 import ProjectsPage from './components/ProjectsPage'
 import LearningPage from './components/LearningPage'
+import Navigation from './components/Navigation'
 import './App.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
-  const [slideDirection, setSlideDirection] = useState(null)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   const handlePageChange = (direction) => {
-    if (direction === 'home') {
-      // Going back to home, set slide direction based on current page
-      setSlideDirection(currentPage === 'projects' ? 'right' : 'left')
-      setTimeout(() => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true)
+    setTimeout(() => {
+      if (direction === 'home') {
         setCurrentPage('home')
-        setSlideDirection(null)
-      }, 800)
-    } else if (currentPage === 'home') {
-      // Going from home to another page
-      setSlideDirection(direction)
-      if (direction === 'left') {
+      } else if (direction === 'left') {
         setCurrentPage('projects')
       } else if (direction === 'right') {
         setCurrentPage('learning')
       }
-    }
+      setIsTransitioning(false)
+    }, 400)
   }
 
   return (
     <div className="app-container">
-      <div className={`page-container ${slideDirection ? `slide-${slideDirection}` : ''}`}>
-        <ProjectsPage visible={currentPage === 'projects'} onNavigate={handlePageChange} />
-        <HomePage onNavigate={handlePageChange} currentPage={currentPage} />
-        <LearningPage visible={currentPage === 'learning'} />
+      <div className={`page-wrapper ${isTransitioning ? 'transitioning' : ''}`}>
+        {currentPage === 'projects' && (
+          <ProjectsPage onNavigate={handlePageChange} />
+        )}
+        {currentPage === 'home' && (
+          <HomePage onNavigate={handlePageChange} currentPage={currentPage} />
+        )}
+        {currentPage === 'learning' && (
+          <LearningPage onNavigate={handlePageChange} />
+        )}
       </div>
+      <Navigation currentPage={currentPage} onNavigate={handlePageChange} />
     </div>
   )
 }

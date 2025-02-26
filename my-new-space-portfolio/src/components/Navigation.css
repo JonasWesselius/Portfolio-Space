@@ -1,0 +1,49 @@
+.navigation {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 1000;
+  background: rgba(11, 11, 31, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.navigation span {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.navigation span:hover {
+  color: white;
+}
+
+.navigation span.active {
+  color: white;
+}
+
+.navigation span.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+} 

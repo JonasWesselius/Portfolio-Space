@@ -3,34 +3,33 @@ import './ProjectsPage.css';
 import PropTypes from 'prop-types';
 import moonImg from '../assets/moon.png';
 
-function ProjectsPage({ visible, onNavigate }) {
-  const [moonStyle, setMoonStyle] = useState({ transform: 'translateX(50%)' });
+function ProjectsPage({ onNavigate }) {
+  const [contentFading, setContentFading] = useState(false);
 
   const handleMoonClick = () => {
-    setMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
+    setContentFading(true);
+    const moon = document.querySelector('.projects-page .moon');
+    moon.classList.add('sliding-right');
     
     setTimeout(() => {
       onNavigate('home');
-      setMoonStyle({ transform: 'translateX(50%)' });
-    }, 800);
+    }, 400);
   };
 
   return (
-    <div className="projects-page" style={{ display: visible ? 'block' : 'none' }}>
-      <div className="moon right-moon" 
-        onClick={handleMoonClick} 
-        style={{ 
-          ...moonStyle,
-          backgroundImage: `url(${moonImg})`
-        }}>
+    <div className="projects-page">
+      <div className={`page-content ${contentFading ? 'fade-out' : ''}`}>
+        <h1 className="page-title">Projects</h1>
       </div>
-      {/* Content will go here */}
+      <div className="moon right-moon"
+        onClick={handleMoonClick} 
+        style={{ backgroundImage: `url(${moonImg})` }}>
+      </div>
     </div>
   );
 }
 
 ProjectsPage.propTypes = {
-  visible: PropTypes.bool,
   onNavigate: PropTypes.func.isRequired
 };
 
