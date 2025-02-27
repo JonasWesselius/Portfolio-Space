@@ -7,11 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background: linear-gradient(to bottom, #0B0B1F, #202060); /* Add background to match HomePage */
   margin: 0;
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+  background: var(--deep-space);
 }
 
 .moon {

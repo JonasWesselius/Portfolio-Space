@@ -1,7 +1,47 @@
+* {
+  transition: background 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-container,
+.learning-page,
+.projects-page,
+.work-detail,
+.home-page,
+.intro-text,
+.profile-circle {
+  transition: background 0.3s ease, background-color 0.3s ease;
+}
+
+:root {
+  /* Dark theme (default) */
+  --cosmic-blue: #2a2a5f;
+  --deep-space: #030306;
+  --star-white: rgba(255, 255, 255, 0.9);
+  --bg-gradient-start: #020204;
+  --bg-gradient-end: #050510;
+  --bg-overlay: rgba(5, 5, 16, 0.8);
+  background: var(--deep-space);
+}
+
+:root[data-theme='light'] {
+  /* Light theme */
+  --cosmic-blue: #4141a3;
+  --deep-space: #1a1a4f;
+  --star-white: rgba(255, 255, 255, 1);
+  --bg-gradient-start: #1a1a4f;
+  --bg-gradient-end: #2a2a7f;
+  --bg-overlay: rgba(26, 26, 79, 0.8);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #0B0B1F, #202060);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+.app {
+  background: linear-gradient(to bottom, #020204, #050510);
+  min-height: 100vh;
 }
 
 .app-container {
@@ -9,7 +49,7 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to bottom, #0B0B1F, #202060);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
 }
 
 .page-wrapper {
@@ -76,4 +116,45 @@ body {
   left: 8rem;
   transform: none;
   text-align: left;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Update other components to use variables */
+.learning-page,
+.projects-page,
+.work-detail {
+  background: var(--deep-space);
+}
+
+.intro-text,
+.profile-circle {
+  background: var(--bg-overlay);
 }

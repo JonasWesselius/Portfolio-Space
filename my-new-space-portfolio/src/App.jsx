@@ -3,6 +3,7 @@ import HomePage from './components/HomePage'
 import ProjectsPage from './components/ProjectsPage'
 import LearningPage from './components/LearningPage'
 import Navigation from './components/Navigation'
+import ThemeToggle from './components/ThemeToggle'
 import './App.css'
 
 function App() {
@@ -25,8 +26,13 @@ function App() {
     }, 400)
   }
 
+  const handleThemeChange = (theme) => {
+    console.log('Theme changed to:', theme);
+  };
+
   return (
     <div className="app-container">
+      <ThemeToggle onThemeChange={handleThemeChange} />
       <div className={`page-wrapper ${isTransitioning ? 'transitioning' : ''}`}>
         {currentPage === 'projects' && (
           <ProjectsPage onNavigate={handlePageChange} />
