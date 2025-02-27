@@ -40,24 +40,56 @@ function HomePage({ onNavigate, currentPage }) {
     }
   };
 
+  // More stars with varying speeds, positions and directions
+  const shootingStars = Array.from({ length: 4 }, (_, i) => ({
+    id: i,
+    delay: Math.random() * 4,
+    top: Math.random() * 100, // Use full viewport height
+    left: Math.random() * 100, // Use full viewport width
+    angle: Math.random() * 360, // Full 360-degree rotation
+    speed: 6 + Math.random() * 4
+  }));
+
   return (
     <div className={`home-page ${currentPage !== 'home' ? 'page-inactive' : ''}`}>
+      {/* Add this before your existing content */}
+      {shootingStars.map(star => (
+        <div 
+          key={star.id}
+          className="shooting-star"
+          style={{
+            '--delay': star.delay,
+            '--star-top': star.top,
+            '--star-left': star.left,
+            '--angle': `${star.angle}deg`,
+            '--speed': `${star.speed}s`
+          }}
+        />
+      ))}
+      
       <div className="moon left-moon" 
         onClick={() => handleMoonClick('left')} 
         style={{ 
           ...leftMoonStyle,
           backgroundImage: `url(${moonImg})`
-        }}>
-      </div>
+        }}
+      />
       
       <div className="content-container">
         <div className="profile-container">
-          <div className="profile-circle">
-            <img src={profileImg} alt="Jonas Profile" className="profile-image" />
-          </div>
           <div className="intro-text">
-            <h1>Hello, I&apos;m Jonas</h1>
-            <p>I specialize in front-end development</p>
+            <h1>Hi There,</h1>
+            <div className="name-line">
+              <span className="line"></span>
+              <span className="dot"></span>
+              <span>Jonas Wesselius</span>
+            </div>
+            <p>Front End Developer and Student at Fontys ICT</p>
+          </div>
+          <div className="profile-circle-container">
+            <div className="profile-circle">
+              <img src={profileImg} alt="Jonas Profile" className="profile-image" />
+            </div>
           </div>
         </div>
         <div className="floating-skills">
@@ -82,8 +114,8 @@ function HomePage({ onNavigate, currentPage }) {
         style={{ 
           ...rightMoonStyle,
           backgroundImage: `url(${moonImg})`
-        }}>
-      </div>
+        }}
+      />
     </div>
   );
 }
@@ -93,4 +125,4 @@ HomePage.propTypes = {
   currentPage: PropTypes.string.isRequired
 };
 
-export default HomePage; 
+export default HomePage;

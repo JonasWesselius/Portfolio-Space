@@ -16,31 +16,62 @@
   padding: 2rem;
   max-height: calc(100vh - 120px); /* Account for navigation */
   margin-bottom: 80px; /* Add space for navigation */
+  position: relative;
 }
 
 .profile-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   position: relative;
-  z-index: 1;
+}
+
+.profile-circle-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .profile-circle {
-  width: min(400px, 80vw);
-  height: min(400px, 80vw);
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.3);
+  width: min(900px, 95vw);
+  height: min(900px, 95vw);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-overlay);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+}
+
+/* Left half circle */
+.profile-circle::before {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border: 4px solid transparent;
+  border-left-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rotate 3s infinite linear;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Right half circle */
+.profile-circle::after {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border: 4px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rotate 3s infinite linear reverse;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .profile-image {
@@ -49,29 +80,60 @@
   border-radius: 50%;
   border: 4px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 30px rgba(107, 73, 132, 0.5);
+  position: relative;
+  z-index: 2;
 }
 
 .intro-text {
-  text-align: center;
-  padding: 2rem;
-  background: var(--bg-overlay);
-  backdrop-filter: blur(10px);
-  width: 100%;
-  max-width: 600px; /* Limit maximum width */
+  text-align: left;
+  padding: 0;
+  width: 400px;
+  margin-left: -5rem;
+  z-index: 2;
+  background: none;
 }
 
 .intro-text h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+  font-size: clamp(5rem, 5vw, 3rem); /* Responsive font size */
+}
+
+.intro-text h2 {
+  margin-bottom: 1rem;
+  color: var(--star-white);
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Slightly smaller than h1 */
 }
 
 .intro-text p {
   color: rgba(255,255,255,0.8);
-  font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
+  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Smaller paragraph */
+  margin-top: 0.5rem; /* Add some space above paragraph */
+}
+
+.name-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--star-white);
+  font-size: clamp(1rem, 2.5vw, 1.6rem); /* Smaller text */
+}
+
+.name-line .line {
+  width: 5rem; /* Longer line */
+  height: 5px; /* Thicker line */
+  background: var(--star-white);
+}
+
+.name-line .dot {
+  width: 15px; /* Bigger dot */
+  height: 15px; /* Bigger dot */
+  border-radius: 50%;
+  background: var(--star-white);
 }
 
 @keyframes rotate {
@@ -128,11 +190,14 @@
 }
 
 .floating-skills {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
 
 .skill-tag {
@@ -192,4 +257,59 @@
   .intro-text {
     padding: 1rem;
   }
+}
+
+.shooting-star {
+  position: fixed;
+  top: calc(var(--star-top) * 1vh);
+  left: calc(var(--star-left) * 1vw);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  opacity: 0;
+  transform-origin: center;
+  transform: rotate(var(--angle));
+  animation: shootingStar var(--speed, 8s) ease-out infinite;
+  animation-delay: calc(var(--delay) * 1s);
+  z-index: 0;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  transition: background 0.3s ease;
+}
+
+@keyframes shootingStar {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(-100px);
+  }
+  2%, 5% {
+    opacity: 1;
+  }
+  15%, 100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(150vw); /* Increased travel distance */
+  }
+}
+
+/* Light theme version */
+:root[data-theme='light'] .shooting-star {
+  background: linear-gradient(90deg, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.5) 50%,
+    rgba(0,0,0,0) 100%
+  );
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Add this to your :root selector to enable smooth transitions for all theme changes */
+:root {
+  transition: --cosmic-blue 0.3s ease,
+              --deep-space 0.3s ease,
+              --star-white 0.3s ease,
+              --bg-gradient-start 0.3s ease,
+              --bg-gradient-end 0.3s ease,
+              --bg-overlay 0.3s ease;
 } 

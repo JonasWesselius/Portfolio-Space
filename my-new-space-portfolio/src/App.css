@@ -154,7 +154,8 @@ body {
   background: var(--deep-space);
 }
 
-.intro-text,
+/* Remove or comment out these lines */
+/* .intro-text,
 .profile-circle {
   background: var(--bg-overlay);
-}
+} */
