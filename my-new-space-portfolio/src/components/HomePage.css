@@ -15,23 +15,66 @@
 }
 
 .profile-container {
-  text-align: center;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 800px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-circle {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 11, 31, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 50px rgba(255,255,255,0.1);
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  border: 4px solid #ffffff;
-  margin-bottom: 20px;
+  border: 4px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 30px rgba(107, 73, 132, 0.5);
 }
 
 .intro-text {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 15px;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(11, 11, 31, 0.7);
+  border-radius: 20px;
   backdrop-filter: blur(5px);
+  width: 100%;
+}
+
+.intro-text h1 {
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+}
+
+.intro-text p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.5rem;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .moon {
@@ -42,8 +85,8 @@
   border-radius: 50%;
   position: relative;
   cursor: pointer;
-  transition: box-shadow 0.3s ease-in-out;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+  filter: drop-shadow(0 0 20px rgba(107, 73, 132, 0.3));
   will-change: transform;
 }
 
@@ -60,7 +103,12 @@
 }
 
 .moon:hover {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  filter: drop-shadow(0 0 30px rgba(107, 73, 132, 0.6));
+  transform: scale(1.05) translateX(50%);
+}
+
+.moon.left-moon:hover {
+  transform: scale(1.05) translateX(-50%);
 }
 
 .page-inactive .content-container {
@@ -70,4 +118,39 @@
 
 .page-inactive .moon {
   z-index: 100;
+}
+
+.floating-skills {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.skill-tag {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: floatIn var(--duration) linear var(--delay) infinite;
+  left: var(--position);
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100vh, 0) rotate(10deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100vh, 0) rotate(-10deg);
+  }
 } 
