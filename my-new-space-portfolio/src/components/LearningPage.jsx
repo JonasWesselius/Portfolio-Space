@@ -6,6 +6,7 @@ import WorkItem from './WorkItem';
 import placeholder1 from '../assets/placeholder1.png';
 import placeholder2 from '../assets/placeholder2.png';
 import CircularNav from './CircularNav';
+import WorkDetail from './WorkDetail';
 
 const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal", ];
 
@@ -45,6 +46,8 @@ const workItems = [
 function LearningPage({ onNavigate }) {
   const [contentFading, setContentFading] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
+  const [selectedWork, setSelectedWork] = useState(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const gridRef = useRef(null);
   const isScrolling = useRef(false);
 
@@ -57,6 +60,13 @@ function LearningPage({ onNavigate }) {
     const maxScroll = contentHeight - gridHeight;
     const sectionPosition = (sectionIndex / (sections.length - 1)) * maxScroll;
 
+    // Add moon rotation for section clicks
+    const moon = document.querySelector('.learning-page .moon');
+    if (moon) {
+      const rotationDegrees = -(sectionIndex / (sections.length - 1)) * 180;
+      moon.style.transform = `translateX(-50%) rotate(${rotationDegrees}deg)`;
+    }
+
     gridRef.current.scrollTo({
       top: sectionPosition,
       behavior: 'smooth'
@@ -64,10 +74,9 @@ function LearningPage({ onNavigate }) {
 
     setCurrentSection(sectionIndex);
     
-    // Reset scrolling flag after animation
     setTimeout(() => {
       isScrolling.current = false;
-    }, 500); // Adjust timing if needed
+    }, 500);
   };
 
   const handleScroll = (e) => {
@@ -80,6 +89,13 @@ function LearningPage({ onNavigate }) {
     
     const sectionProgress = currentScroll / maxScroll;
     const newSection = Math.round(sectionProgress * (sections.length - 1));
+    
+    // Add moon rotation based on scroll progress
+    const moon = document.querySelector('.learning-page .moon');
+    if (moon) {
+      const rotationDegrees = -(sectionProgress * 180); // Negative for counter-clockwise
+      moon.style.transform = `translateX(-50%) rotate(${rotationDegrees}deg)`;
+    }
     
     if (newSection !== currentSection && newSection >= 0 && newSection < sections.length) {
       setCurrentSection(newSection);
@@ -100,8 +116,42 @@ function LearningPage({ onNavigate }) {
     }, 400);
   };
 
+  const handleWorkClick = (item) => {
+    // Start with transition state true
+    setIsTransitioning(true);
+    setSelectedWork(item);
+    
+    // Start moon rotation
+    const moon = document.querySelector('.learning-page .moon');
+    moon.style.transform = `translateX(-50%) rotate(-360deg)`;
+    
+    // Remove transition state after a very short delay to allow animation
+    requestAnimationFrame(() => {
+      setIsTransitioning(false);
+    });
+  };
+
+  const handleBackToLearning = () => {
+    setIsTransitioning(true);
+    
+    // Start moon rotation and slide down together
+    const moon = document.querySelector('.learning-page .moon');
+    moon.style.transform = `translateX(-50%) rotate(0deg)`;
+    
+    const workDetail = document.querySelector('.work-detail');
+    if (workDetail) {
+      workDetail.classList.add('sliding-down');
+    }
+    
+    // Wait for animations to complete
+    setTimeout(() => {
+      setSelectedWork(null);
+      setIsTransitioning(false);
+    }, 1000);
+  };
+
   return (
-    <div className="learning-page">
+    <div className={`learning-page ${selectedWork ? 'work-detail-view' : ''}`}>
       <div className="moon-container">
         <div className="moon left-moon"
           onClick={handleMoonClick} 
@@ -126,10 +176,18 @@ function LearningPage({ onNavigate }) {
               title={item.title}
               image={item.image}
               isReversed={index % 2 !== 0}
+              onClick={() => handleWorkClick(item)}
             />
           ))}
         </div>
       </div>
+      {selectedWork && (
+        <WorkDetail 
+          title={selectedWork.title}
+          onBack={handleBackToLearning}
+          className={isTransitioning ? '' : 'visible'}
+        />
+      )}
     </div>
   );
 }

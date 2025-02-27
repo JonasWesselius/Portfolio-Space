@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import './WorkItem.css';
 
-function WorkItem({ title, image, isReversed }) {
+function WorkItem({ title, image, isReversed, onClick }) {
   return (
-    <div className={`work-item ${isReversed ? 'reversed' : ''}`}>
+    <div 
+      className={`work-item ${isReversed ? 'reversed' : ''}`}
+      onClick={onClick}
+    >
       <div className="work-content">
         <h3>{title}</h3>
       </div>
@@ -15,7 +18,8 @@ function WorkItem({ title, image, isReversed }) {
 WorkItem.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  isReversed: PropTypes.bool
+  isReversed: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 };
 
 export default WorkItem; 

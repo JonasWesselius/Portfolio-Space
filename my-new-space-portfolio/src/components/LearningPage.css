@@ -9,6 +9,10 @@
   overflow: hidden;
 }
 
+.learning-page.work-detail-view {
+  background: linear-gradient(to bottom, #0B0B1F, #202060);
+}
+
 /* Moon container to keep it on the left edge */
 .moon-container {
   position: absolute;
@@ -29,6 +33,7 @@
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+  transition: transform 0.3s ease;
 }
 
 .left-moon {
@@ -44,28 +49,23 @@
   position: relative;
   height: 100vh;
   margin-left: 150px;
+  z-index: 1;
 }
 
-.page-title {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-size: 2.5rem;
-  background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
+.learning-page .moon {
+  transition: transform 1s ease;
 }
 
 .work-grid {
   position: absolute;
-  top: 100px; /* Space for title */
+  top: 100px;
   right: 4rem;
-  bottom: 6rem; /* Increased bottom space for navigation */
-  width: 700px; /* Reduced width from 800px */
+  bottom: 6rem;
+  width: 700px;
   overflow-y: auto;
   padding-right: 1rem;
-  padding-bottom: 2rem; /* Extra padding at bottom of scrollable content */
+  padding-bottom: 2rem;
+  transition: all 0.5s ease;
 }
 
 /* Scrollbar styling */
@@ -80,6 +80,47 @@
 .work-grid::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
+}
+
+.page-title {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+
+/* Update WorkDetail styles */
+.work-detail {
+  position: fixed;
+  top: 0;
+  left: 150px;
+  right: 0;
+  height: 100vh;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: all 0.2s ease;
+  background: linear-gradient(to bottom, #0B0B1F, #202060);
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.work-detail.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.circular-nav {
+  transition: opacity 0.5s ease;
+}
+
+.circular-nav.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {

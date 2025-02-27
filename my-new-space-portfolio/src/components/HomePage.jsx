@@ -5,8 +5,8 @@ import profileImg from '../assets/profile.png';
 import moonImg from '../assets/moon.png';
 
 const skills = [
-  'JavaScript', 'React', 'TypeScript', 'HTML', 'CSS', 
-  'Node.js', 'Git', 'Figma', 'SQL', 'Next.js', 'Tailwind CSS'
+  'JavaScript', 'React', 'TypeScript', 'HTML', 'CSS', 'Photoshop','Illustrator','InDesign',
+  'Wireframing', 'Git', 'Figma', 'SQL', 'Next.js', 'Tailwind CSS'
 ];
 
 function HomePage({ onNavigate, currentPage }) {
@@ -21,10 +21,9 @@ function HomePage({ onNavigate, currentPage }) {
       } else {
         setRightMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
       }
+      
       setTimeout(() => {
         onNavigate(direction);
-        setLeftMoonStyle({ transform: 'translateX(-50%)' });
-        setRightMoonStyle({ transform: 'translateX(50%)' });
       }, 800);
     } else {
       // Going back to home - slide in the opposite direction
@@ -34,10 +33,9 @@ function HomePage({ onNavigate, currentPage }) {
       } else {
         setRightMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
       }
+      
       setTimeout(() => {
         onNavigate('home');
-        setLeftMoonStyle({ transform: 'translateX(-50%)' });
-        setRightMoonStyle({ transform: 'translateX(50%)' });
       }, 800);
     }
   };
