@@ -39,7 +39,7 @@ function Navigation({ currentPage, onNavigate }) {
         className={currentPage === 'learning' ? 'active' : ''} 
         onClick={() => handleNavClick('right')}
       >
-        learning outcomes
+        learnings
       </span>
     </div>
   );

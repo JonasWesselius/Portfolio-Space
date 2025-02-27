@@ -1,17 +1,19 @@
 .navigation {
   position: fixed;
-  bottom: 2rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 2rem;
+  gap: clamp(0.5rem, 2vw, 2rem);
   z-index: 1000;
   background: rgba(11, 11, 31, 0.3);
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 20px rgba(75, 121, 161, 0.3);
+  width: fit-content;
+  max-width: 90vw;
 }
 
 .navigation span {
@@ -19,9 +21,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   text-transform: lowercase;
   letter-spacing: 1px;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  white-space: nowrap;
+  text-align: center;
+  min-width: 60px;
 }
 
 .navigation span:hover {
@@ -50,5 +56,17 @@
   }
   to {
     transform: scaleX(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .navigation span {
+    padding: 0.5rem 0.75rem;
+    min-width: 50px;
   }
 } 

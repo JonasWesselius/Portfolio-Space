@@ -5,9 +5,18 @@
   height: 100vh;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
   background: linear-gradient(to bottom, #0B0B1F, #202060);
+  overflow: hidden;
+}
+
+/* Moon container to keep it on the left edge */
+.moon-container {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  z-index: 2;
 }
 
 .moon {
@@ -28,4 +37,72 @@
 
 .moon:hover {
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.page-content {
+  flex: 1;
+  position: relative;
+  height: 100vh;
+  margin-left: 150px;
+}
+
+.page-title {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+}
+
+.work-grid {
+  position: absolute;
+  top: 100px; /* Space for title */
+  right: 4rem;
+  bottom: 6rem; /* Increased bottom space for navigation */
+  width: 700px; /* Reduced width from 800px */
+  overflow-y: auto;
+  padding-right: 1rem;
+  padding-bottom: 2rem; /* Extra padding at bottom of scrollable content */
+}
+
+/* Scrollbar styling */
+.work-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.work-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.work-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .moon-container {
+    width: 200px;
+  }
+
+  .moon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .page-content {
+    margin-left: 100px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .work-grid {
+    width: 500px; /* Reduced from 600px */
+    right: 2rem;
+    bottom: 5rem; /* Adjusted for mobile */
+  }
 } 
