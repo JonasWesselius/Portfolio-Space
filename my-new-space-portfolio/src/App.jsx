@@ -23,7 +23,7 @@ function App() {
         setCurrentPage('learning')
       }
       setIsTransitioning(false)
-    }, 400)
+    }, 300) // Changed from 400 to 300 to match moon timing
   }
 
   const handleThemeChange = (theme) => {

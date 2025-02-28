@@ -6,6 +6,8 @@
   justify-content: space-between;
   position: relative;
   background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 }
 
 .content-container {
@@ -17,6 +19,8 @@
   max-height: calc(100vh - 120px); /* Account for navigation */
   margin-bottom: 80px; /* Add space for navigation */
   position: relative;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
 }
 
 .profile-container {
@@ -180,13 +184,12 @@
   transform: scale(1.05) translateX(-50%);
 }
 
-.page-inactive .content-container {
-  opacity: 0;
+.page-inactive {
   pointer-events: none;
 }
 
-.page-inactive .moon {
-  z-index: 100;
+.page-inactive .content-container {
+  opacity: 0;
 }
 
 .floating-skills {

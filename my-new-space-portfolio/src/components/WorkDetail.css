@@ -6,17 +6,15 @@
   height: 100vh;
   opacity: 0;
   transform: translateY(100vh);
-  transition: all 0.3s ease, background 0.3s ease;
+  transition: all 0.3s ease;
   background: var(--deep-space);
   z-index: 20;
   overflow-y: auto;
-  display: block;
 }
 
 .work-detail.visible {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto;
 }
 
 .work-detail.sliding-down {

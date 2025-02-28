@@ -44,7 +44,6 @@ const workItems = [
 ];
 
 function LearningPage({ onNavigate }) {
-  const [contentFading, setContentFading] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
   const [selectedWork, setSelectedWork] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -107,13 +106,27 @@ function LearningPage({ onNavigate }) {
   };
 
   const handleMoonClick = () => {
-    setContentFading(true);
-    const moon = document.querySelector('.learning-page .moon');
-    moon.classList.add('sliding-left');
+    // Only try to fade elements that exist
+    const circularNav = document.querySelector('.circular-nav');
+    if (circularNav) {
+      circularNav.classList.add('hidden');
+    }
+
+    // Add fade-out class to the page content instead of direct style manipulation
+    const pageContent = document.querySelector('.page-content');
+    if (pageContent) {
+      pageContent.classList.add('fade-out');
+    }
     
+    // Add moon animation
+    const moon = document.querySelector('.learning-page .moon');
+    if (moon) {
+      moon.classList.add('sliding-left');
+    }
+
     setTimeout(() => {
       onNavigate('home');
-    }, 400);
+    }, 800);
   };
 
   const handleWorkClick = (item) => {
@@ -139,15 +152,13 @@ function LearningPage({ onNavigate }) {
     moon.style.transform = `translateX(-50%) rotate(0deg)`;
     
     const workDetail = document.querySelector('.work-detail');
-    if (workDetail) {
-      workDetail.classList.add('sliding-down');
-    }
+    workDetail.classList.add('sliding-down');
     
     // Wait for animations to complete
     setTimeout(() => {
       setSelectedWork(null);
       setIsTransitioning(false);
-    }, 1000);
+    }, 300);
   };
 
   return (
@@ -163,7 +174,7 @@ function LearningPage({ onNavigate }) {
         currentSection={currentSection}
         onSectionChange={handleSectionClick}
       />
-      <div className={`page-content ${contentFading ? 'fade-out' : ''}`}>
+      <div className="page-content">
         <h1 className="page-title">Learning Outcomes</h1>
         <div 
           className="work-grid" 

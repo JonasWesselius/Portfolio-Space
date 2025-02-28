@@ -15,18 +15,23 @@ function HomePage({ onNavigate, currentPage }) {
 
   const handleMoonClick = (direction) => {
     if (currentPage === 'home') {
-      // Going from home to another page
+      // Start both content fade and moon movement immediately
+      document.querySelector('.content-container').style.opacity = '0';
+      
       if (direction === 'left') {
         setLeftMoonStyle({ transform: 'translateX(150%)', transition: 'transform 0.8s ease-in-out' });
       } else {
         setRightMoonStyle({ transform: 'translateX(-150%)', transition: 'transform 0.8s ease-in-out' });
       }
       
+      // Navigate after moon movement completes
       setTimeout(() => {
         onNavigate(direction);
       }, 800);
     } else {
-      // Going back to home - slide in the opposite direction
+      // Similar timing for returning to home
+      document.querySelector('.content-container').style.opacity = '0';
+      
       const slideDirection = currentPage === 'projects' ? 'right' : 'left';
       if (slideDirection === 'left') {
         setLeftMoonStyle({ transform: 'translateX(150%)', transition: 'transform 0.8s ease-in-out' });
