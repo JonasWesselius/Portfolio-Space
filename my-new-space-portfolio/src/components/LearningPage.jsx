@@ -17,12 +17,12 @@ const workItems = [
     section: 0 // Frontend
   },
   {
-    title: "Node.js API",
+    title: "Brandguide for Studio",
     image: placeholder2,
     section: 1 // Backend
   },
   {
-    title: "AWS Infrastructure",
+    title: "Logos for Studio",
     image: placeholder1,
     section: 2 // DevOps
   },
@@ -32,12 +32,12 @@ const workItems = [
     section: 3 // Mobile
   },
   {
-    title: "ML Model Deployment",
+    title: "Wireframing",
     image: placeholder1,
     section: 4 // AI/ML
   },
   {
-    title: "UI/UX Design System",
+    title: "Research methods",
     image: placeholder2,
     section: 5 // Design
   }
