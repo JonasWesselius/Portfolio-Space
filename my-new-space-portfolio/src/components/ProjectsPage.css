@@ -11,7 +11,6 @@
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
-  background: var(--deep-space);
 }
 
 .moon {
@@ -34,4 +33,75 @@
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
-/* Remove .right-moon class as we're using margin instead */ 
+/* Remove .right-moon class as we're using margin instead */
+
+/* Arrow styles */
+@keyframes pulseRight {
+  0% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) rotate(45deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-top: 8px solid rgba(0, 0, 0, 0.8);
+  border-right: 8px solid rgba(0, 0, 0, 0.8);
+  z-index: 101;
+  pointer-events: none;
+}
+
+.right-arrow {
+  right: 40px;
+  animation: pulseRight 2s ease-in-out infinite;
+}
+
+.moon:hover + .nav-arrow {
+  border-color: rgba(0, 0, 0, 1);
+}
+
+/* Add starry background with lower opacity */
+.projects-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 15%, white, transparent),
+    radial-gradient(1px 1px at 50% 25%, white, transparent),
+    radial-gradient(2px 2px at 75% 35%, white, transparent),
+    radial-gradient(1px 1px at 15% 45%, white, transparent),
+    radial-gradient(1.5px 1.5px at 65% 55%, white, transparent),
+    radial-gradient(1px 1px at 35% 65%, white, transparent),
+    radial-gradient(2px 2px at 85% 75%, white, transparent),
+    radial-gradient(1px 1px at 45% 85%, white, transparent),
+    radial-gradient(1.5px 1.5px at 55% 95%, white, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.2;
+  z-index: 0;
+  pointer-events: none;
+  animation: twinkling 8s infinite linear;
+}
+
+@keyframes twinkling {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+} 

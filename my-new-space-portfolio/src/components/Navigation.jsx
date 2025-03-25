@@ -27,7 +27,7 @@ function Navigation({ currentPage, onNavigate }) {
         className={currentPage === 'projects' ? 'active' : ''} 
         onClick={() => handleNavClick('left')}
       >
-        projects
+        project
       </span>
       <span 
         className={currentPage === 'home' ? 'active' : ''} 

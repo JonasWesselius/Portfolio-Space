@@ -49,35 +49,238 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+/* Fixed starry background */
+.home-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 15%, white, transparent),
+    radial-gradient(1px 1px at 50% 25%, white, transparent),
+    radial-gradient(2px 2px at 75% 35%, white, transparent),
+    radial-gradient(1px 1px at 15% 45%, white, transparent),
+    radial-gradient(1.5px 1.5px at 65% 55%, white, transparent),
+    radial-gradient(1px 1px at 35% 65%, white, transparent),
+    radial-gradient(2px 2px at 85% 75%, white, transparent),
+    radial-gradient(1px 1px at 45% 85%, white, transparent),
+    radial-gradient(1.5px 1.5px at 55% 95%, white, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  animation: twinkling 8s infinite linear;
 }
 
 .page-wrapper {
+  width: 300vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  transition: transform 0.8s ease-in-out;
+  z-index: 1;
+}
+
+/* Page positions */
+.page-wrapper[data-page="projects"] {
+  transform: translateX(0);
+}
+
+.page-wrapper[data-page="home"] {
+  transform: translateX(-100vw);
+}
+
+.page-wrapper[data-page="learning"] {
+  transform: translateX(-200vw);
+}
+
+/* Base page styles */
+.projects-page,
+.home-page,
+.learning-page {
   width: 100vw;
   height: 100vh;
   position: relative;
-  opacity: 1;
-  transition: opacity 0.4s ease-in-out;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(to bottom, #020204, #050510);
 }
 
-.page-wrapper.transitioning {
-  opacity: 0;
+/* Navigation */
+.navigation {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
+/* Ensure elements stay within their pages */
+.home-page *,
+.projects-page *,
+.learning-page * {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Keep backgrounds visible */
+.home-page::before,
+.learning-page::before,
+.projects-page::before {
+  transition: none;
+  position: fixed;
+}
+
+/* Ensure constellations stay visible */
+.constellations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.constellation {
+  position: absolute;
+  pointer-events: auto;
+}
+
+/* Moon and arrow styles */
+.moon {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-top: 8px solid rgba(0, 0, 0, 0.8);
+  border-right: 8px solid rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.home-page .left-arrow {
+  left: 3%;
+  transform: translateY(-50%) rotate(-135deg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.home-page .right-arrow {
+  right: 3%;
+  transform: translateY(-50%) rotate(45deg);
+  animation: pulseRight 2s ease-in-out infinite;
+}
+
+.projects-page .right-arrow {
+  right: 3%;
+  transform: translateY(-50%) rotate(45deg);
+  animation: pulseRight 2s ease-in-out infinite;
+}
+
+.learning-page .left-arrow {
+  left:  3%;
+  transform: translateY(-50%) rotate(-135deg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateY(-50%) rotate(-135deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) rotate(-135deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) rotate(-135deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseRight {
+  0% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) rotate(45deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Ensure content stays visible during transitions */
 .page-content {
   opacity: 1;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
 }
 
-.page-content.fade-out {
+.page-inactive .page-content {
   opacity: 0;
 }
 
-.moon.sliding-left {
+/* Moon positioning */
+.left-moon {
+  transform: translateX(-50%);
+  margin-left: 0;
+}
+
+.right-moon {
+  transform: translateX(50%);
+  margin-right: 0;
+}
+
+/* Content container */
+.content-container {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  max-width: calc(100vw - 600px);
+  margin: 0 auto;
+}
+
+/* Remove fade transitions */
+.page-inactive .page-content {
+  opacity: 1;
+}
+
+/* Moon transitions */
+.moon {
+  transition: transform 0.8s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Only keep sliding animations for navigating away from home */
+.home-page .moon.sliding-left {
   animation: slideLeft 0.8s ease-in-out;
 }
 
-.moon.sliding-right {
+.home-page .moon.sliding-right {
   animation: slideRight 0.8s ease-in-out;
 }
 
@@ -147,11 +350,11 @@ body {
   height: 1.2rem;
 }
 
-/* Update other components to use variables */
+/* Remove the deep-space background from these components */
 .learning-page,
 .projects-page,
 .work-detail {
-  background: var(--deep-space);
+  background: none;
 }
 
 /* Remove or comment out these lines */

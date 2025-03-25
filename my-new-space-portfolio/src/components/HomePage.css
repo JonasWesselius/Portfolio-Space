@@ -5,9 +5,34 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  overflow: hidden;
   background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
+}
+
+.home-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25% 15%, white, transparent),
+    radial-gradient(1px 1px at 50% 25%, white, transparent),
+    radial-gradient(2px 2px at 75% 35%, white, transparent),
+    radial-gradient(1px 1px at 15% 45%, white, transparent),
+    radial-gradient(1.5px 1.5px at 65% 55%, white, transparent),
+    radial-gradient(1px 1px at 35% 65%, white, transparent),
+    radial-gradient(2px 2px at 85% 75%, white, transparent),
+    radial-gradient(1px 1px at 45% 85%, white, transparent),
+    radial-gradient(1.5px 1.5px at 55% 95%, white, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  animation: twinkling 8s infinite linear;
+  transition: none;
 }
 
 .content-container {
@@ -21,6 +46,7 @@
   position: relative;
   transition: opacity 0.3s ease-in-out;
   opacity: 1;
+  z-index: 1;
 }
 
 .profile-container {
@@ -32,6 +58,7 @@
   width: 100%;
   max-width: 1200px;
   position: relative;
+  z-index: 2;
 }
 
 .profile-circle-container {
@@ -39,6 +66,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .profile-circle {
@@ -48,10 +76,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
-/* Left half circle */
-.profile-circle::before {
+/* Comment out rotating circles */
+/* .profile-circle::before {
   content: '';
   position: absolute;
   width: 140%;
@@ -62,9 +91,9 @@
   border-radius: 50%;
   animation: rotate 3s infinite linear;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
 }
 
-/* Right half circle */
 .profile-circle::after {
   content: '';
   position: absolute;
@@ -76,7 +105,8 @@
   border-radius: 50%;
   animation: rotate 3s infinite linear reverse;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
+  pointer-events: none;
+} */
 
 .profile-image {
   width: min(300px, 60vw);
@@ -86,6 +116,7 @@
   box-shadow: 0 0 30px rgba(107, 73, 132, 0.5);
   position: relative;
   z-index: 2;
+  pointer-events: none;
 }
 
 .intro-text {
@@ -93,8 +124,9 @@
   padding: 0;
   width: 400px;
   margin-left: -5rem;
-  z-index: 2;
+  z-index: 3;
   background: none;
+  position: relative;
 }
 
 .intro-text h1 {
@@ -171,6 +203,33 @@
   transform: translateX(50%);
 }
 
+/* New arrow styles */
+.moon-arrow {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  border-top: 4px solid rgba(255, 255, 255, 0.8);
+  border-left: 4px solid rgba(255, 255, 255, 0.8);
+  z-index: 101;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.left-moon .moon-arrow {
+  right: -20px;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.right-moon .moon-arrow {
+  left: -20px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.moon:hover .moon-arrow {
+  border-color: rgba(255, 255, 255, 1);
+}
+
 .moon-overlay {
   display: none;
 }
@@ -192,41 +251,149 @@
   opacity: 0;
 }
 
-.floating-skills {
-  position: fixed;
+.constellations {
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
+  z-index: 2;
 }
 
-.skill-tag {
+.constellation {
   position: absolute;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.2rem;
-  white-space: nowrap;
-  pointer-events: none;
-  animation: floatIn var(--duration) linear var(--delay) infinite;
-  left: var(--position);
+  color: var(--star-white);
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: auto;
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes floatIn {
+/* Ensure constellation positions are relative to the viewport */
+.constellation[style*="right"] {
+  right: var(--right);
+}
+
+.constellation[style*="left"] {
+  left: var(--left);
+}
+
+.constellation[style*="top"] {
+  top: var(--top);
+}
+
+.constellation[style*="bottom"] {
+  bottom: var(--bottom);
+}
+
+.constellation-name {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 11;
+  background: transparent;
+  padding: 1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.constellation-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0.3;
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+  pointer-events: auto;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Ensure the container doesn't block interactions */
+.profile-circle-container {
+  pointer-events: none;
+}
+
+/* Make sure SVG elements are interactive */
+.constellation svg,
+.constellation g,
+.constellation line,
+.constellation circle,
+.constellation text {
+  pointer-events: none;
+}
+
+.constellation-line {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.constellation-star {
+  fill: white;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+  transition: all 0.3s ease-in-out;
+}
+
+.constellation-label {
+  fill: rgba(255, 255, 255, 0.4);  /* Reduced opacity */
+  font-size: 0.6rem;  /* Smaller font */
+  text-anchor: middle;
+  font-family: sans-serif;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;  /* Initially hidden */
+}
+
+/* Hover states */
+.constellation:hover .constellation-name {
+  opacity: 0;
+}
+
+.constellation:hover .constellation-lines {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.constellation:hover .constellation-line {
+  stroke: rgba(255, 255, 255, 0.4);
+}
+
+.constellation:hover .constellation-star {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+}
+
+.constellation:hover .constellation-label {
+  opacity: 1;
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
   0% {
-    opacity: 0;
-    transform: translate3d(0, 100vh, 0) rotate(10deg);
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
+    opacity: 0.3;
+    
+    r: 1;  /* Smaller stars */
   }
   100% {
-    opacity: 0;
-    transform: translate3d(0, -100vh, 0) rotate(-10deg);
+    opacity: 1;
+    r: 2;  /* Smaller stars */
   }
 }
 
@@ -263,7 +430,7 @@
 }
 
 .shooting-star {
-  position: fixed;
+  position: absolute;
   top: calc(var(--star-top) * 1vh);
   left: calc(var(--star-left) * 1vw);
   width: 200px;
@@ -280,7 +447,6 @@
   animation-delay: calc(var(--delay) * 1s);
   z-index: 0;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-  transition: background 0.3s ease;
 }
 
 @keyframes shootingStar {
@@ -293,26 +459,86 @@
   }
   15%, 100% {
     opacity: 0;
-    transform: rotate(var(--angle)) translateX(150vw); /* Increased travel distance */
+    transform: rotate(var(--angle)) translateX(150vw);
   }
 }
 
-/* Light theme version */
-:root[data-theme='light'] .shooting-star {
-  background: linear-gradient(90deg, 
-    rgba(0,0,0,0) 0%, 
-    rgba(0,0,0,0.5) 50%,
-    rgba(0,0,0,0) 100%
-  );
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+/* Remove theme-related styles and simplify variables */
+:root {
+  --deep-space: #030306;
+  --star-white: rgba(255, 255, 255, 0.9);
+  --bg-gradient-start: #020204;
+  --bg-gradient-end: #050510;
+  background: var(--deep-space);
 }
 
-/* Add this to your :root selector to enable smooth transitions for all theme changes */
-:root {
-  transition: --cosmic-blue 0.3s ease,
-              --deep-space 0.3s ease,
-              --star-white 0.3s ease,
-              --bg-gradient-start 0.3s ease,
-              --bg-gradient-end 0.3s ease,
-              --bg-overlay 0.3s ease;
+/* Remove theme toggle related styles */
+/* Remove :root[data-theme='light'] section */
+
+/* Add starry background */
+@keyframes twinkling {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Independent arrow styles */
+@keyframes pulse {
+  0% {
+    transform: translateY(-50%) rotate(-135deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) rotate(-135deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) rotate(-135deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulseRight {
+  0% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) rotate(45deg) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) rotate(45deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-top: 8px solid rgba(0, 0, 0, 0.8);
+  border-right: 8px solid rgba(0, 0, 0, 0.8);
+  z-index: 101;
+  pointer-events: none;
+}
+
+.left-arrow {
+  left: 40px;
+  transform: translateY(-50%) rotate(-135deg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.right-arrow {
+  right: 40px;
+  transform: translateY(-50%) rotate(45deg);
+  animation: pulseRight 2s ease-in-out infinite;
+}
+
+.moon:hover + .nav-arrow {
+  border-color: rgba(0, 0, 0, 1);
 } 

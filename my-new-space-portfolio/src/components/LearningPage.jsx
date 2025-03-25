@@ -106,13 +106,7 @@ function LearningPage({ onNavigate }) {
   };
 
   const handleMoonClick = () => {
-    // Only try to fade elements that exist
-    const circularNav = document.querySelector('.circular-nav');
-    if (circularNav) {
-      circularNav.classList.add('hidden');
-    }
-
-    // Add fade-out class to the page content instead of direct style manipulation
+    // Only add fade-out class to the page content
     const pageContent = document.querySelector('.page-content');
     if (pageContent) {
       pageContent.classList.add('fade-out');
@@ -169,6 +163,7 @@ function LearningPage({ onNavigate }) {
           style={{ backgroundImage: `url(${moonImg})` }}>
         </div>
       </div>
+      <div className="nav-arrow left-arrow"></div>
       <CircularNav 
         sections={sections}
         currentSection={currentSection}
@@ -191,14 +186,14 @@ function LearningPage({ onNavigate }) {
             />
           ))}
         </div>
+        {selectedWork && (
+          <WorkDetail 
+            title={selectedWork.title}
+            onBack={handleBackToLearning}
+            className={isTransitioning ? '' : 'visible'}
+          />
+        )}
       </div>
-      {selectedWork && (
-        <WorkDetail 
-          title={selectedWork.title}
-          onBack={handleBackToLearning}
-          className={isTransitioning ? '' : 'visible'}
-        />
-      )}
     </div>
   );
 }

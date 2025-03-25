@@ -1,7 +1,7 @@
 .work-detail {
   position: fixed;
   top: 0;
-  left: 150px; /* Match the margin-left of page-content */
+  left: 80px; /* Match the margin-left of page-content */
   right: 0;
   height: 100vh;
   opacity: 0;

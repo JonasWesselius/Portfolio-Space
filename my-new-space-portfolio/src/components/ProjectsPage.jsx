@@ -19,12 +19,13 @@ function ProjectsPage({ onNavigate }) {
   return (
     <div className="projects-page">
       <div className={`page-content ${contentFading ? 'fade-out' : ''}`}>
-        <h1 className="page-title">Projects</h1>
+        <h1 className="page-title">Project</h1>
       </div>
       <div className="moon right-moon"
         onClick={handleMoonClick} 
         style={{ backgroundImage: `url(${moonImg})` }}>
       </div>
+      <div className="nav-arrow right-arrow"></div>
     </div>
   );
 }
