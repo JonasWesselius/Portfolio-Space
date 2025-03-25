@@ -1,27 +1,42 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import ProjectsPage from './components/ProjectsPage'
 import LearningPage from './components/LearningPage'
 import Navigation from './components/Navigation'
 import './App.css'
 
-function App() {
+// Wrapper component to handle page transitions
+function PageWrapper() {
   const [currentPage, setCurrentPage] = useState('home')
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Update current page based on URL
+    const path = location.pathname.split('/')[1] || 'home'
+    setCurrentPage(path)
+  }, [location])
 
   const handlePageChange = (direction) => {
-    if (isTransitioning) return;
+    if (isTransitioning) return
     
     setIsTransitioning(true)
     
-    let newPage = direction
-    if (direction === 'left') {
-      newPage = 'projects'
-    } else if (direction === 'right') {
-      newPage = 'learning'
+    let newPage
+    if (typeof direction === 'string') {
+      if (direction === 'left') {
+        newPage = 'projects'
+      } else if (direction === 'right') {
+        newPage = 'learning'
+      } else {
+        newPage = direction
+      }
     }
     
-    setCurrentPage(newPage)
+    // Navigate using React Router
+    navigate(`/${newPage === 'home' ? '' : newPage}`)
     
     // Reset transition state after slide completes
     setTimeout(() => {
@@ -34,10 +49,23 @@ function App() {
       <div className={`page-wrapper ${isTransitioning ? 'transitioning' : ''}`} data-page={currentPage}>
         <ProjectsPage onNavigate={handlePageChange} />
         <HomePage onNavigate={handlePageChange} currentPage={currentPage} />
-        <LearningPage onNavigate={handlePageChange} />
+        <LearningPage 
+          onNavigate={handlePageChange}
+          workPath={location.pathname.split('/')[2]}
+        />
       </div>
       <Navigation currentPage={currentPage} onNavigate={handlePageChange} />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/*" element={<PageWrapper />} />
+      </Routes>
+    </Router>
   )
 }
 

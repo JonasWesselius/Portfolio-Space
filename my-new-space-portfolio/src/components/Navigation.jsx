@@ -1,5 +1,6 @@
 import './Navigation.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function Navigation({ currentPage, onNavigate }) {
   const handleNavClick = (direction) => {
@@ -23,24 +24,38 @@ function Navigation({ currentPage, onNavigate }) {
 
   return (
     <div className="navigation">
-      <span 
+      <Link 
+        to="/projects"
         className={currentPage === 'projects' ? 'active' : ''} 
-        onClick={() => handleNavClick('left')}
+        onClick={(e) => {
+          e.preventDefault();
+          handleNavClick('left');
+        }}
       >
         project
-      </span>
-      <span 
+      </Link>
+      <Link 
+        to="/"
         className={currentPage === 'home' ? 'active' : ''} 
-        onClick={() => currentPage !== 'home' ? handleNavClick('home') : null}
+        onClick={(e) => {
+          e.preventDefault();
+          if (currentPage !== 'home') {
+            handleNavClick('home');
+          }
+        }}
       >
         home
-      </span>
-      <span 
+      </Link>
+      <Link 
+        to="/learning"
         className={currentPage === 'learning' ? 'active' : ''} 
-        onClick={() => handleNavClick('right')}
+        onClick={(e) => {
+          e.preventDefault();
+          handleNavClick('right');
+        }}
       >
         learnings
-      </span>
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LearningPage.css';
 import PropTypes from 'prop-types';
 import moonImg from '../assets/moon.png';
@@ -12,43 +13,63 @@ const sections = ["Media Products", "Development", "Iterative Design", "Professi
 
 const workItems = [
   {
+    id: 'react-portfolio',
     title: "React Portfolio Website",
     image: placeholder1,
-    section: 0 // Frontend
+    section: 0
   },
   {
+    id: 'brandguide-studio',
     title: "Brandguide for Studio",
     image: placeholder2,
-    section: 1 // Backend
+    section: 1
   },
   {
+    id: 'studio-logos',
     title: "Logos for Studio",
     image: placeholder1,
-    section: 2 // DevOps
+    section: 2
   },
   {
+    id: 'react-native-app',
     title: "React Native App",
     image: placeholder2,
-    section: 3 // Mobile
+    section: 3
   },
   {
+    id: 'wireframing',
     title: "Wireframing",
     image: placeholder1,
-    section: 4 // AI/ML
+    section: 4
   },
   {
+    id: 'research-methods',
     title: "Research methods",
     image: placeholder2,
-    section: 5 // Design
+    section: 5
   }
 ];
 
-function LearningPage({ onNavigate }) {
+function LearningPage({ onNavigate, workPath }) {
   const [currentSection, setCurrentSection] = useState(0);
   const [selectedWork, setSelectedWork] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const gridRef = useRef(null);
   const isScrolling = useRef(false);
+  const navigate = useNavigate();
+
+  // Handle URL-based work selection
+  useEffect(() => {
+    if (workPath) {
+      const work = workItems.find(item => item.id === workPath);
+      if (work) {
+        setSelectedWork(work);
+        setCurrentSection(work.section);
+      }
+    } else {
+      setSelectedWork(null);
+    }
+  }, [workPath]);
 
   const scrollToSection = (sectionIndex) => {
     if (!gridRef.current || isScrolling.current) return;
@@ -128,6 +149,9 @@ function LearningPage({ onNavigate }) {
     setIsTransitioning(true);
     setSelectedWork(item);
     
+    // Update URL without triggering page reload
+    navigate(`/learning/${item.id}`, { replace: true });
+    
     // Start moon rotation
     const moon = document.querySelector('.learning-page .moon');
     moon.style.transform = `translateX(-50%) rotate(-360deg)`;
@@ -147,6 +171,9 @@ function LearningPage({ onNavigate }) {
     
     const workDetail = document.querySelector('.work-detail');
     workDetail.classList.add('sliding-down');
+    
+    // Update URL without triggering page reload
+    navigate('/learning', { replace: true });
     
     // Wait for animations to complete
     setTimeout(() => {
@@ -178,7 +205,7 @@ function LearningPage({ onNavigate }) {
         >
           {workItems.map((item, index) => (
             <WorkItem 
-              key={index}
+              key={item.id}
               title={item.title}
               image={item.image}
               isReversed={index % 2 !== 0}
@@ -199,7 +226,8 @@ function LearningPage({ onNavigate }) {
 }
 
 LearningPage.propTypes = {
-  onNavigate: PropTypes.func.isRequired
+  onNavigate: PropTypes.func.isRequired,
+  workPath: PropTypes.string
 };
 
 export default LearningPage;

@@ -9,7 +9,7 @@
   background: transparent;
 }
 
-.navigation span {
+.navigation a {
   color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -19,19 +19,20 @@
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  text-decoration: none;
 }
 
-.navigation span:hover {
+.navigation a:hover {
   color: rgba(255, 255, 255, 1);
   background: rgba(255, 255, 255, 0.1);
 }
 
-.navigation span.active {
+.navigation a.active {
   color: rgba(255, 255, 255, 1);
   background: rgba(255, 255, 255, 0.1);
 }
 
-.navigation span.active::after {
+.navigation a.active::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -57,7 +58,7 @@
     gap: 0.5rem;
   }
   
-  .navigation span {
+  .navigation a {
     padding: 0.5rem 0.75rem;
     min-width: 50px;
   }
