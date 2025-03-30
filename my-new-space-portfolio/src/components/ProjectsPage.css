@@ -7,10 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
-  box-sizing: border-box;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+}
+
+/* Moon container styles */
+.moon-container {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  z-index: 1002;
+  pointer-events: none;
 }
 
 .moon {
@@ -21,8 +30,9 @@
   border-radius: 50%;
   position: relative;
   cursor: pointer;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0);
+  z-index: 1002;
 }
 
 .right-moon {
@@ -33,7 +43,157 @@
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
-/* Remove .right-moon class as we're using margin instead */
+/* Page content styles */
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Project content styles */
+.project-content {
+  position: absolute;
+  top: 8%;
+  left: 0;
+  width: 100%;
+  height: 92%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  perspective: 1000px;
+}
+
+.project-description {
+  color: var(--star-white);
+  max-width: 800px;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.section-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  height: 80%;
+  padding: 0rem;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  scroll-timeline: --scroll-timeline block;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.section-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-content.exit {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.section {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  view-timeline: --reveal-section block;
+  animation: fade-in both linear;
+  animation-timeline: --reveal-section;
+  animation-range: entry 10% cover 30%;
+  margin-bottom: 4rem;
+  padding: 2rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 0 8rem 0;
+}
+
+.project-description h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  color: white;
+}
+
+.project-description h3 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 1rem;
+  color: white;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.project-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.project-features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: white;
+}
+
+/* Scrollbar styling */
+.section-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.section-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.section-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
 
 /* Arrow styles */
 @keyframes pulseRight {
@@ -49,26 +209,6 @@
     transform: translateY(-50%) rotate(45deg) scale(1);
     opacity: 0.8;
   }
-}
-
-.nav-arrow {
-  position: fixed;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  border-top: 8px solid rgba(0, 0, 0, 0.8);
-  border-right: 8px solid rgba(0, 0, 0, 0.8);
-  z-index: 101;
-  pointer-events: none;
-}
-
-.right-arrow {
-  right: 40px;
-  animation: pulseRight 2s ease-in-out infinite;
-}
-
-.moon:hover + .nav-arrow {
-  border-color: rgba(0, 0, 0, 1);
 }
 
 /* Add starry background with lower opacity */
@@ -103,5 +243,55 @@
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .moon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .project-description {
+    padding: 0 1rem;
+  }
+}
+
+.section-navigation {
+  display: none;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-align: left;
+  padding: 1rem 0;
+}
+
+/* Keep the existing section-title styles for the main page title */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+  position: sticky;
+  top: 0;
+  padding: 1rem 0;
+  z-index: 2;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--bg-gradient-start) 0%, var(--bg-gradient-start) 100%);
+}
+
+/* Add a fallback for browsers that don't support scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+  .section {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 } 

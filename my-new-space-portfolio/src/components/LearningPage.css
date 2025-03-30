@@ -20,8 +20,8 @@
   top: 50%;
   transform: translateY(-50%);
   width: 300px;
-  z-index: 100;
-  pointer-events: auto;
+  z-index: 1003;
+  pointer-events: none;
 }
 
 .moon {
@@ -35,6 +35,7 @@
   transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0);
   pointer-events: auto;
+  z-index: 1003;
 }
 
 .left-moon {
@@ -49,7 +50,6 @@
   flex: 1;
   position: relative;
   height: 100vh;
-  margin-left: 150px;
   z-index: 1;
   opacity: 1;
   transition: opacity 0.2s ease-out;
@@ -97,8 +97,6 @@
   -webkit-text-fill-color: transparent;
   z-index: 1;
 }
-
-
 
 /* Section menu styles */
 .section-menu {
@@ -212,26 +210,6 @@
   }
 }
 
-.nav-arrow {
-  position: fixed;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  border-top: 8px solid rgba(0, 0, 0, 0.8);
-  border-right: 8px solid rgba(0, 0, 0, 0.8);
-  z-index: 101;
-  pointer-events: none;
-}
-
-.left-arrow {
-  left: 40px;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.moon:hover + .nav-arrow {
-  border-color: rgba(0, 0, 0, 1);
-}
-
 /* Add starry background with lower opacity */
 .learning-page::before {
   content: '';
@@ -267,20 +245,6 @@
   }
 }
 
-/* Circular Navigation Styles */
-.circular-nav {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  z-index: 1000;
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .nav-item {
   position: absolute;
@@ -323,4 +287,9 @@
 
 .nav-item:hover .nav-label {
   opacity: 1;
-} 
+}
+
+.work-detail {
+  z-index: 1001;
+}
+

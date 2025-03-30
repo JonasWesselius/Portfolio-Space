@@ -6,8 +6,10 @@
   width: 400px;
   height: 400px;
   opacity: 1;
+  z-index: 1002;
   transition: opacity 0.15s ease-out;
 }
+
 
 /* Visual elements container */
 .nav-visuals {
@@ -113,6 +115,7 @@
   align-items: center;
   pointer-events: auto;
 }
+
 
 .section-title:nth-child(1) {
   top: 0;

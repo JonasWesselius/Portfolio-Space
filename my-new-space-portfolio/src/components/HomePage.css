@@ -203,33 +203,6 @@
   transform: translateX(50%);
 }
 
-/* New arrow styles */
-.moon-arrow {
-  position: absolute;
-  top: 50%;
-  width: 30px;
-  height: 30px;
-  border-top: 4px solid rgba(255, 255, 255, 0.8);
-  border-left: 4px solid rgba(255, 255, 255, 0.8);
-  z-index: 101;
-  pointer-events: none;
-  transition: border-color 0.3s ease;
-}
-
-.left-moon .moon-arrow {
-  right: -20px;
-  transform: translateY(-50%) rotate(-135deg);
-}
-
-.right-moon .moon-arrow {
-  left: -20px;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.moon:hover .moon-arrow {
-  border-color: rgba(255, 255, 255, 1);
-}
-
 .moon-overlay {
   display: none;
 }
@@ -515,30 +488,3 @@
     opacity: 0.8;
   }
 }
-
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  border-top: 8px solid rgba(0, 0, 0, 0.8);
-  border-right: 8px solid rgba(0, 0, 0, 0.8);
-  z-index: 101;
-  pointer-events: none;
-}
-
-.left-arrow {
-  left: 40px;
-  transform: translateY(-50%) rotate(-135deg);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.right-arrow {
-  right: 40px;
-  transform: translateY(-50%) rotate(45deg);
-  animation: pulseRight 2s ease-in-out infinite;
-}
-
-.moon:hover + .nav-arrow {
-  border-color: rgba(0, 0, 0, 1);
-} 

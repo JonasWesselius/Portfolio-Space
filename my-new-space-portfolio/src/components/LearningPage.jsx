@@ -1,13 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './LearningPage.css';
 import PropTypes from 'prop-types';
 import moonImg from '../assets/moon.png';
-import WorkItem from './WorkItem';
 import placeholder1 from '../assets/placeholder1.png';
 import placeholder2 from '../assets/placeholder2.png';
 import CircularNav from './CircularNav';
+import WorkItem from './WorkItem';
 import WorkDetail from './WorkDetail';
+import './LearningPage.css';
 
 const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal", ];
 
@@ -51,12 +50,11 @@ const workItems = [
 ];
 
 function LearningPage({ onNavigate, workPath }) {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useState('personal');
   const [selectedWork, setSelectedWork] = useState(null);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isWorkDetailVisible, setIsWorkDetailVisible] = useState(false);
   const gridRef = useRef(null);
   const isScrolling = useRef(false);
-  const navigate = useNavigate();
 
   // Handle URL-based work selection
   useEffect(() => {
@@ -144,53 +142,34 @@ function LearningPage({ onNavigate, workPath }) {
     }, 800);
   };
 
-  const handleWorkClick = (item) => {
-    // Start with transition state true
-    setIsTransitioning(true);
-    setSelectedWork(item);
-    
-    // Update URL without triggering page reload
-    navigate(`/learning/${item.id}`, { replace: true });
-    
-    // Start moon rotation
-    const moon = document.querySelector('.learning-page .moon');
-    moon.style.transform = `translateX(-50%) rotate(-360deg)`;
-    
-    // Remove transition state after a very short delay to allow animation
-    requestAnimationFrame(() => {
-      setIsTransitioning(false);
-    });
+  const handleWorkClick = (work) => {
+    setSelectedWork(work);
+    setTimeout(() => {
+      setIsWorkDetailVisible(true);
+    }, 50);
   };
 
   const handleBackToLearning = () => {
-    setIsTransitioning(true);
+    const workDetailElement = document.querySelector('.work-detail');
+    workDetailElement.classList.add('sliding-down');
     
-    // Start moon rotation and slide down together
-    const moon = document.querySelector('.learning-page .moon');
-    moon.style.transform = `translateX(-50%) rotate(0deg)`;
-    
-    const workDetail = document.querySelector('.work-detail');
-    workDetail.classList.add('sliding-down');
-    
-    // Update URL without triggering page reload
-    navigate('/learning', { replace: true });
-    
-    // Wait for animations to complete
     setTimeout(() => {
       setSelectedWork(null);
-      setIsTransitioning(false);
+      setIsWorkDetailVisible(false);
+      workDetailElement.classList.remove('sliding-down');
     }, 300);
   };
 
   return (
     <div className={`learning-page ${selectedWork ? 'work-detail-view' : ''}`}>
       <div className="moon-container">
-        <div className="moon left-moon"
+        <div 
+          className="moon left-moon"
           onClick={handleMoonClick} 
-          style={{ backgroundImage: `url(${moonImg})` }}>
-        </div>
+          style={{ backgroundImage: `url(${moonImg})` }}
+        />
+        <div className="nav-arrow left-arrow"></div>
       </div>
-      <div className="nav-arrow left-arrow"></div>
       <CircularNav 
         sections={sections}
         currentSection={currentSection}
@@ -217,7 +196,7 @@ function LearningPage({ onNavigate, workPath }) {
           <WorkDetail 
             title={selectedWork.title}
             onBack={handleBackToLearning}
-            className={isTransitioning ? '' : 'visible'}
+            className={isWorkDetailVisible ? 'visible' : ''}
           />
         )}
       </div>
@@ -227,7 +206,7 @@ function LearningPage({ onNavigate, workPath }) {
 
 LearningPage.propTypes = {
   onNavigate: PropTypes.func.isRequired,
-  workPath: PropTypes.string
+  workPath: PropTypes.string,
 };
 
 export default LearningPage;
