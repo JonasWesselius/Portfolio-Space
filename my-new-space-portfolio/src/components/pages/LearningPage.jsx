@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import moonImg from '../assets/moon.png';
-import placeholder1 from '../assets/placeholder1.png';
-import placeholder2 from '../assets/placeholder2.png';
-import CircularNav from './CircularNav';
-import WorkItem from './WorkItem';
-import WorkDetail from './WorkDetail';
+import Moon from '../common/Moon';
+import StarryBackground from '../animations/StarryBackground';
+import CircularNav from '../navigation/CircularNav';
+import WorkItem from '../common/WorkItem';
+import WorkDetail from '../common/WorkDetail';
+import placeholder1 from '../../assets/placeholder1.png';
+import placeholder2 from '../../assets/placeholder2.png';
 import './LearningPage.css';
 
-const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal", ];
+const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal"];
 
 const workItems = [
   {
@@ -162,14 +163,8 @@ function LearningPage({ onNavigate, workPath }) {
 
   return (
     <div className={`learning-page ${selectedWork ? 'work-detail-view' : ''}`}>
-      <div className="moon-container">
-        <div 
-          className="moon left-moon"
-          onClick={handleMoonClick} 
-          style={{ backgroundImage: `url(${moonImg})` }}
-        />
-        <div className="nav-arrow left-arrow"></div>
-      </div>
+      <StarryBackground />
+      <Moon position="left" onClick={handleMoonClick} />
       <CircularNav 
         sections={sections}
         currentSection={currentSection}
@@ -209,4 +204,4 @@ LearningPage.propTypes = {
   workPath: PropTypes.string,
 };
 
-export default LearningPage;
+export default LearningPage; 

@@ -73,7 +73,6 @@ body {
   opacity: 0.3;
   z-index: 0;
   pointer-events: none;
-  animation: twinkling 8s infinite linear;
 }
 
 .page-wrapper {
@@ -112,7 +111,7 @@ body {
   padding: 0;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(to bottom, #020204, #050510);
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
 }
 
 /* Navigation */
@@ -121,7 +120,7 @@ body {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: var(--z-navigation);
   width: auto;
   display: flex;
   justify-content: center;
@@ -152,7 +151,7 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 1;
+  z-index: var(--z-constellations);
 }
 
 .constellation {
@@ -160,12 +159,12 @@ body {
   pointer-events: auto;
 }
 
-/* Moon and arrow styles */
+/* Moon styles */
 .moon {
-  width: 300px;
-  height: 300px;
+  width: var(--moon-size);
+  height: var(--moon-size);
   position: relative;
-  z-index: 100;
+  z-index: var(--z-moon);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -186,69 +185,32 @@ body {
   transform: scale(1.05) translateX(50%);
 }
 
+/* Navigation arrows */
 .nav-arrow {
   position: absolute;
   top: 50%;
-  width: 40px;
-  height: 40px;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
   border-top: 8px solid rgba(0, 0, 0, 0.8);
   border-right: 8px solid rgba(0, 0, 0, 0.8);
-  z-index: 1003;
+  z-index: var(--z-navigation);
   pointer-events: none;
 }
 
 .home-page .left-arrow {
   left: 3%;
-  transform: translateY(-50%) rotate(-135deg);
-  animation: pulse 2s ease-in-out infinite;
 }
 
 .home-page .right-arrow {
   right: 3%;
-  transform: translateY(-50%) rotate(45deg);
-  animation: pulseRight 2s ease-in-out infinite;
 }
 
 .projects-page .right-arrow {
   right: 3%;
-  transform: translateY(-50%) rotate(45deg);
-  animation: pulseRight 2s ease-in-out infinite;
 }
 
 .learning-page .left-arrow {
   left: 20%;
-  transform: translateY(-50%) rotate(-135deg);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0% {
-    transform: translateY(-50%) rotate(-135deg) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-50%) rotate(-135deg) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-50%) rotate(-135deg) scale(1);
-    opacity: 0.8;
-  }
-}
-
-@keyframes pulseRight {
-  0% {
-    transform: translateY(-50%) rotate(45deg) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-50%) rotate(45deg) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-50%) rotate(45deg) scale(1);
-    opacity: 0.8;
-  }
 }
 
 /* Ensure content stays visible during transitions */
