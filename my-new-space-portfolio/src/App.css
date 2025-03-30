@@ -166,6 +166,24 @@ body {
   height: 300px;
   position: relative;
   z-index: 100;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.moon:hover {
+  filter: drop-shadow(0 0 30px rgba(107, 73, 132, 0.6));
+  transform: scale(1.05);
+}
+
+.left-moon:hover {
+  transform: scale(1.05) translateX(-50%);
+}
+
+.right-moon:hover {
+  transform: scale(1.05) translateX(50%);
 }
 
 .nav-arrow {
@@ -274,31 +292,42 @@ body {
   transition: transform 0.8s ease-in-out, filter 0.3s ease-in-out;
 }
 
-/* Only keep sliding animations for navigating away from home */
-.home-page .moon.sliding-left {
-  animation: slideLeft 0.8s ease-in-out;
+/* Remove old sliding animations */
+.sliding-left {
+  animation: none;
 }
 
-.home-page .moon.sliding-right {
-  animation: slideRight 0.8s ease-in-out;
+.sliding-right {
+  animation: none;
 }
 
 @keyframes slideLeft {
-  from {
-    transform: translateX(-50%);
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: translateX(150%);
+  100% {
+    transform: translateX(-100vw);
   }
 }
 
 @keyframes slideRight {
-  from {
-    transform: translateX(50%);
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: translateX(-150%);
+  100% {
+    transform: translateX(100vw);
   }
+}
+
+/* Add fade animations */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.4s ease-in;
 }
 
 .page-title {
