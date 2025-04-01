@@ -1,0 +1,76 @@
+/* Update WorkDetail styles */
+.work-detail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 1001;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.work-detail.visible {
+  transform: translateY(0);
+}
+
+.work-detail.sliding-down {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.back-button {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.back-button span {
+  font-size: 1.5rem;
+}
+
+.work-detail-content {
+  padding: 8rem 4rem;
+  color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.work-detail-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #fff, var(--cosmic-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .work-detail {
+    left: 100px;
+  }
+  
+  .back-button {
+    left: 6rem;
+  }
+  
+  .work-detail-content {
+    padding: 6rem 2rem;
+  }
+} 

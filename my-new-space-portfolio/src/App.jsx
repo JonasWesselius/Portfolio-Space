@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-import HomePage from './components/HomePage'
-import ProjectsPage from './components/ProjectsPage'
-import LearningPage from './components/LearningPage'
-import Navigation from './components/Navigation'
+import HomePage from './components/pages/HomePage'
+import ProjectsPage from './components/pages/ProjectsPage'
+import LearningPage from './components/pages/LearningPage'
+import Navigation from './components/layouts/Navigation'
 import './App.css'
 
 // Wrapper component to handle page transitions

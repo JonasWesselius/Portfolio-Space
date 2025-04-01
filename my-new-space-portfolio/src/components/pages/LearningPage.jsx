@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import moonImg from '../assets/moon.png';
-import placeholder1 from '../assets/placeholder1.png';
-import placeholder2 from '../assets/placeholder2.png';
-import CircularNav from './CircularNav';
-import WorkItem from './WorkItem';
-import WorkDetail from './WorkDetail';
+import moonImg from '../../assets/moon.png';
+import placeholder1 from '../../assets/placeholder1.png';
+import placeholder2 from '../../assets/placeholder2.png';
+import CircularNav from '../layouts/CircularNav';
+import WorkItem from '../common/WorkItem';
+import WorkDetail from '../common/WorkDetail';
 import './LearningPage.css';
 
 const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal", ];

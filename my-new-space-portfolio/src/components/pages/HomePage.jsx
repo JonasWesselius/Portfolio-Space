@@ -1,7 +1,7 @@
 import './HomePage.css';
 import PropTypes from 'prop-types';
-import profileImg from '../assets/profile.png';
-import moonImg from '../assets/moon.png';
+import profileImg from '../../assets/profile.png';
+import moonImg from '../../assets/moon.png';
 
 const constellations = [
   {
