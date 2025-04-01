@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
-import profileImg from '../../assets/profile.png';
-import Moon from '../common/Moon';
-import StarryBackground from '../animations/StarryBackground';
 import './HomePage.css';
+import PropTypes from 'prop-types';
+import profileImg from '../assets/profile.png';
+import moonImg from '../assets/moon.png';
 
 const constellations = [
   {
@@ -54,7 +53,6 @@ function HomePage({ onNavigate, currentPage }) {
 
   return (
     <div className={`home-page ${currentPage !== 'home' ? 'page-inactive' : ''}`}>
-      <StarryBackground />
       {shootingStars.map(star => (
         <div 
           key={star.id}
@@ -69,7 +67,11 @@ function HomePage({ onNavigate, currentPage }) {
         />
       ))}
       
-      <Moon position="left" onClick={() => handleMoonClick('projects')} />
+      <div className="moon left-moon" 
+        onClick={() => handleMoonClick('left')} 
+        style={{ backgroundImage: `url(${moonImg})` }}>
+      </div>
+      <div className="nav-arrow left-arrow"></div>
       
       <div className="content-container">
         <div className="profile-container">
@@ -137,7 +139,11 @@ function HomePage({ onNavigate, currentPage }) {
         </div>
       </div>
 
-      <Moon position="right" onClick={() => handleMoonClick('learning')} />
+      <div className="moon right-moon" 
+        onClick={() => handleMoonClick('right')} 
+        style={{ backgroundImage: `url(${moonImg})` }}>
+      </div>
+      <div className="nav-arrow right-arrow"></div>
     </div>
   );
 }
@@ -147,4 +153,4 @@ HomePage.propTypes = {
   currentPage: PropTypes.string.isRequired
 };
 
-export default HomePage; 
+export default HomePage;
