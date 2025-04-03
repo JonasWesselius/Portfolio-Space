@@ -197,6 +197,7 @@ function LearningPage({ onNavigate, workPath }) {
             title={selectedWork.title}
             onBack={handleBackToLearning}
             className={isWorkDetailVisible ? 'visible' : ''}
+            workId={selectedWork.id}
           />
         )}
       </div>
