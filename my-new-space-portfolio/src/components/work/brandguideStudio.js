@@ -1,171 +1,241 @@
 export const brandguideStudioWork = {
   title: "Brandguide for Studio",
-  description: "A comprehensive brand guide created for a studio, establishing visual identity guidelines and design principles. This project showcases my ability to create cohesive and professional brand documentation.",
+  description: "A comprehensive brand guide created for a studio, establishing visual identity guidelines and design principles. This work showcases my ability to create cohesive and professional brand documentation.",
   learningPoints: [
     "Brand identity development",
     "Typography and color theory",
-    "Visual hierarchy principles",
-    "Design system creation",
-    "Documentation best practices",
-    "Client communication and feedback"
+    "Creation of visual elements and hierarchy principles",
+    "Peer communication and feedback"
   ],
   technologies: [
     "Adobe Illustrator",
-    "Adobe InDesign",
-    "Color Theory",
-    "Typography",
-    "Design Systems",
+    "Adobe Photoshop",
+    "Figma",
     "Brand Strategy"
   ],
-  learningOutcome: "This project taught me the importance of creating a cohesive brand identity that can be consistently applied across different mediums. I learned how to effectively communicate design decisions to clients and how to document design systems in a way that ensures consistency and usability for all team members.",
+  learningOutcome: "This work taught me the importance of creating a cohesive brand guide that can be consistently applied. I learned how to effectively communicate design decisions with my peers and how to document design choices in a way that ensures consistency and usability for all team members.",
   learningOutcomes: [
     {
       id: "media-products",
       title: "You create engaging concepts and translate them into interactive validated media products by applying user-centered design principles, visual design techniques and by exploring emerging technologies.",
-      explanation: "The brand guide demonstrates my ability to create engaging visual concepts that translate into practical design guidelines. I applied user-centered design principles by considering how different team members would use the guide, ensuring it was both comprehensive and accessible. The visual design techniques used in the guide itself showcase my understanding of effective communication through design."
-    },
-    {
-      id: "process-documentation",
-      title: "You explain and document your process, comment your code using version control in a personal and team context and communicate recommendations.",
-      explanation: "I thoroughly documented the design process and rationale behind each design decision in the brand guide. This documentation serves as a valuable resource for the team, providing clear recommendations for maintaining brand consistency across all touchpoints. The guide itself is a form of version control for the brand, ensuring all team members work from the same reference."
+      explanation: "The brand guide demonstrates my ability to create engaging visual concepts that translate into practical design guidelines. I applied user-centered design principles by considering how different team members would use the guide, ensuring it was both comprehensive and accessible. The visual design techniques used in the guide itself showcase my understanding of effective communication through design. The Y2K-inspired aesthetic was carefully crafted to create a distinctive and memorable brand identity that resonates with the target audience."
     },
     {
       id: "iterations",
       title: "You present the successive iterations of your creative process, and the connections between them.",
-      explanation: "The brand guide evolved through multiple iterations based on client feedback and team needs. Each version built upon the previous one, with clear connections between design elements and their application. I documented these iterations to show the evolution of the brand identity and how each decision contributed to the final outcome."
+      explanation: "The brand guide underwent multiple iterations in response to team requirements and feedback from teachers. We first considered a pink-focused concept based on the Dutch/Belgian girlgroup K3, but after receiving feedback, we changed our minds and decided to go with a boyband concept named 'The Frontyard Boys' that was inspired by Y2K. We were able to improve our concepts and produce a more unified brand identity thanks to this iterative process. With distinct links between design components and their use, each iteration improved on the one before it. I kept track of these changes to demonstrate how the brand identity changed over time and how each choice affected the final result."
     },
     {
       id: "professional",
       title: "Professional standard: Individually and in teams, you will apply a methodological approach used by the field to formulate project goals, involve stakeholders, conduct action-oriented research, advise, take decisions and report. In take into account ethical, intercultural and sustainable considerations.",
-      explanation: "I approached this project with a professional methodology, involving key stakeholders throughout the process to ensure the brand guide met their needs. I conducted research on industry best practices for brand documentation and considered ethical implications of the visual language chosen. The guide was designed to be sustainable, providing a long-term reference that would reduce the need for constant revisions."
+      explanation: "In order to ensure authenticity in our brand identity, I researched boyband culture and the Y2K era to guide our design choices. I thought about the ethical consequences of our choices and decided to change our original plan when it did not align with what we wanted to accomplish. The guide was made to be permanent, avoiding the need for frequent updates by serving as a long-term reference. It was my responsibility to specify the color scheme, limitations, and use cases for the logo. I made use of industry-standard professional tools such as Adobe Illustrator for vector-based typography and logo design, Adobe Photoshop for image editing and manipulation, and Figma for collaborative design work. These tools show my technical ability to produce high-quality design assets."
     }
   ],
-  process: "The brand guide development began with extensive research into the studio's values, target audience, and competitive landscape. I started by creating mood boards and exploring different visual directions that could represent the studio's unique identity. After presenting several concepts to stakeholders, I refined the chosen direction into a comprehensive brand system. This included defining the color palette, typography, logo usage, and visual elements. I then documented all these elements in a detailed brand guide, ensuring that anyone working with the brand would have clear guidelines for maintaining consistency. The final phase involved creating examples of the brand applied across different mediums to demonstrate its versatility and impact.",
+  process: "The process of developing our studio's brand identity started with the research of many ideas. At first, we thought of doing a parody of the well-known Dutch/Belgian female trio K3, focusing on pink. However, we were worried about coming off as unprofessional and the constraints of working just with pink after getting feedback to fully commit to this route. Our strategy changed as a result of this. We turned our attention to 'The Frontyard Boys,' a boyband concept inspired by Y2K. To assure authenticity in our design choices, this new direction required a new research of the Y2K era and boyband culture. We asked our lecturers for input after creating initial ideas, and they responded favorably to our Y2K-inspired guidance. This confirmation inspired us to improve our concepts even more. I concentrated on creating the color scheme and specifying the logo's use cases and limitations for the final version of the brand guide. In order to visually convey the aesthetic of our brand, I also made a stylescape. Together with moodboards, these components were used to produce a thorough brand guide that successfully conveys the essence of our studio.This process's iterative nature taught me the value of flexibility and responsiveness to feedback while keeping a clear vision for the end result.",
   images: [
     // Iteration 1
     {
       url: "/src/assets/work/studioBrandguide/iteration1/9.png",
-      title: "Brandguide Iteration 1 - Page 9",
+      title: "Brandguide Iteration 1 - Page 1",
       caption: "First iteration of the studio brandguide - Introduction page"
     },
     {
-      url: "/src/assets/work/studioBrandguide/iteration1/10.png",
-      title: "Brandguide Iteration 1 - Page 10",
-      caption: "First iteration - Brand overview"
+      url: "/src/assets/work/studioBrandguide/iteration1/13.png",
+      title: "Brandguide Iteration 1 - Page 2",
+      caption: "First iteration - About us"
     },
     {
-      url: "/src/assets/work/studioBrandguide/iteration1/11.png",
-      title: "Brandguide Iteration 1 - Page 11",
+      url: "/src/assets/work/studioBrandguide/iteration1/14.png",
+      title: "Brandguide Iteration 1 - Page 3",
       caption: "First iteration - Color palette exploration"
     },
     {
-      url: "/src/assets/work/studioBrandguide/iteration1/12.png",
-      title: "Brandguide Iteration 1 - Page 12",
-      caption: "First iteration - Typography selection"
+      url: "/src/assets/work/studioBrandguide/iteration1/15.png",
+      title: "Brandguide Iteration 1 - Page 4",
+      caption: "First iteration - Logo concepts"
     },
     {
-      url: "/src/assets/work/studioBrandguide/iteration1/13.png",
-      title: "Brandguide Iteration 1 - Page 13",
+      url: "/src/assets/work/studioBrandguide/iteration1/17.png",
+      title: "Brandguide Iteration 1 - Page 5",
       caption: "First iteration - Logo concepts"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/19.png",
+      title: "Brandguide Iteration 1 - Page 6",
+      caption: "First iteration - Logo concepts"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/20.png",
+      title: "Brandguide Iteration 1 - Page 7",
+      caption: "First iteration - Logo concepts"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/22.png",
+      title: "Brandguide Iteration 1 - Page 8",
+      caption: "First iteration - Logo concepts"
+    }, 
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/16.png",
+      title: "Brandguide Iteration 1 - Page 9",
+      caption: "First iteration - Typography"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/21.png",
+      title: "Brandguide Iteration 1 - Page 10",
+      caption: "First iteration - Typography"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/10.png",
+      title: "Brandguide Iteration 1 - Page 11",
+      caption: "First iteration - Stylescapes"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration1/11.png",
+      title: "Brandguide Iteration 1 - Page 12",
+      caption: "First iteration - Moodboards"
     },
     
     // Iteration 2
     {
       url: "/src/assets/work/studioBrandguide/iteration2/23.png",
-      title: "Brandguide Iteration 2 - Page 23",
+      title: "Brandguide Iteration 2 - Page 1",
       caption: "Second iteration with refined color palette"
     },
     {
       url: "/src/assets/work/studioBrandguide/iteration2/24.png",
-      title: "Brandguide Iteration 2 - Page 24",
-      caption: "Second iteration - Updated typography system"
-    },
-    {
-      url: "/src/assets/work/studioBrandguide/iteration2/25.png",
-      title: "Brandguide Iteration 2 - Page 25",
-      caption: "Second iteration - Refined logo variations"
-    },
-    {
-      url: "/src/assets/work/studioBrandguide/iteration2/26.png",
-      title: "Brandguide Iteration 2 - Page 26",
-      caption: "Second iteration - Visual elements"
+      title: "Brandguide Iteration 2 - Page 2",
+      caption: "Second iteration - About us"
     },
     {
       url: "/src/assets/work/studioBrandguide/iteration2/27.png",
-      title: "Brandguide Iteration 2 - Page 27",
-      caption: "Second iteration - Application examples"
+      title: "Brandguide Iteration 2 - Page 3",
+      caption: "Second iteration - Updated color palette"
     },
-    
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/35.png",
+      title: "Brandguide Iteration 2 - Page 4",
+      caption: "Second iteration - Updated color palette"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/28.png",
+      title: "Brandguide Iteration 2 - Page 5",
+      caption: "Second iteration - Refined logo variations"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/51.png",
+      title: "Brandguide Iteration 2 - Page 6",
+      caption: "Second iteration - Refined logo variations"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/36.png",
+      title: "Brandguide Iteration 2 - Page 7",
+      caption: "Second iteration - Refined logo variations"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/29.png",
+      title: "Brandguide Iteration 2 - Page 8",
+      caption: "Second iteration - Logo usecases"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/31.png",
+      title: "Brandguide Iteration 2 - Page 9",
+      caption: "Second iteration - Logo usecases"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/32.png",
+      title: "Brandguide Iteration 2 - Page 10",
+      caption: "Second iteration - Logo usecases"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/33.png",
+      title: "Brandguide Iteration 2 - Page 11",
+      caption: "Second iteration - Logo usecases"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/30.png",
+      title: "Brandguide Iteration 2 - Page 12",
+      caption: "Second iteration - Updated typography"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/iteration2/34.png",
+      title: "Brandguide Iteration 2 - Page 13",
+      caption: "Second iteration - Updated typography"
+    },
     // Final Version
     {
       url: "/src/assets/work/studioBrandguide/final/38.png",
-      title: "Brandguide Final - Page 38",
-      caption: "Final iteration of the brandguide - Color palette"
+      title: "Brandguide Final - Page 1",
+      caption: "Final iteration of the brandguide - Frontyard Boys"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/39.png",
-      title: "Brandguide Final - Page 39",
-      caption: "Final iteration of the brandguide - Typography"
+      title: "Brandguide Final - Page 2",
+      caption: "Final iteration of the brandguide - About us"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/40.png",
-      title: "Brandguide Final - Page 40",
-      caption: "Final iteration of the brandguide - Logo usage"
+      title: "Brandguide Final - Page 3",
+      caption: "Final iteration of the brandguide - Color Palette"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/41.png",
-      title: "Brandguide Final - Page 41",
-      caption: "Final iteration of the brandguide - Logo variations"
+      title: "Brandguide Final - Page 4",
+      caption: "Final iteration of the brandguide - Color Palette"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/42.png",
-      title: "Brandguide Final - Page 42",
-      caption: "Final iteration of the brandguide - Logo spacing"
+      title: "Brandguide Final - Page 5",
+      caption: "Final iteration of the brandguide - Logo variations"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/final/46.png",
+      title: "Brandguide Final - Page 6",
+      caption: "Final iteration of the brandguide - Logo applications"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/final/47.png",
+      title: "Brandguide Final - Page 7",
+      caption: "Final iteration of the brandguide - Logo applications"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/43.png",
-      title: "Brandguide Final - Page 43",
+      title: "Brandguide Final - Page 8",
       caption: "Final iteration of the brandguide - Logo applications"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/44.png",
-      title: "Brandguide Final - Page 44",
-      caption: "Final iteration of the brandguide - Visual elements"
+      title: "Brandguide Final - Page 9",
+      caption: "Final iteration of the brandguide - Logo variations"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/45.png",
-      title: "Brandguide Final - Page 45",
-      caption: "Final iteration of the brandguide - Imagery guidelines"
-    },
-    {
-      url: "/src/assets/work/studioBrandguide/final/46.png",
-      title: "Brandguide Final - Page 46",
-      caption: "Final iteration of the brandguide - Layout principles"
-    },
-    {
-      url: "/src/assets/work/studioBrandguide/final/47.png",
-      title: "Brandguide Final - Page 47",
-      caption: "Final iteration of the brandguide - Grid system"
+      title: "Brandguide Final - Page 10",
+      caption: "Final iteration of the brandguide - Logo restrictions"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/48.png",
-      title: "Brandguide Final - Page 48",
-      caption: "Final iteration of the brandguide - Business card design"
+      title: "Brandguide Final - Page 11",
+      caption: "Final iteration of the brandguide - Typography"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/49.png",
-      title: "Brandguide Final - Page 49",
-      caption: "Final iteration of the brandguide - Letterhead design"
+      title: "Brandguide Final - Page 12",
+      caption: "Final iteration of the brandguide - Typography"
     },
     {
-      url: "/src/assets/work/studioBrandguide/final/50.png",
-      title: "Brandguide Final - Page 50",
-      caption: "Final iteration of the brandguide - Envelope design"
+      url: "/src/assets/work/studioBrandguide/final/25.png",
+      title: "Brandguide Final - Page 13",
+      caption: "Final iteration of the brandguide - Stylescapes"
     },
     {
       url: "/src/assets/work/studioBrandguide/final/52.png",
-      title: "Brandguide Final - Page 52",
-      caption: "Final iteration of the brandguide - Digital applications"
+      title: "Brandguide Final - Page 14",
+      caption: "Final iteration of the brandguide - Stylescapes"
+    },
+    {
+      url: "/src/assets/work/studioBrandguide/final/50.png",
+      title: "Brandguide Final - Page 15",
+      caption: "Final iteration of the brandguide - Moodboards"
     }
   ]
 }; 

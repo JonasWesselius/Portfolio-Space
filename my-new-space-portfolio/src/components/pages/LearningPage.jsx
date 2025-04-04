@@ -53,6 +53,24 @@ const workItems = [
     title: "Client meetings",
     image: placeholder1,
     section: 6
+  },
+  {
+    id: 'motivation',
+    title: "Motivation",
+    image: placeholder2,
+    section: 7
+  },
+  {
+    id: 'poster-presentation',
+    title: "Poster Presentation",
+    image: placeholder1,
+    section: 8
+  },
+  {
+    id: 'personas',
+    title: "User Personas",
+    image: placeholder2,
+    section: 9
   }
 ];
 

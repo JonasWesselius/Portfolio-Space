@@ -42,20 +42,42 @@ export const studioLogosWork = {
   ],
   process: "The logo design process began with thorough research into each client's brand values, target audience, and competitive landscape. I started by creating mood boards and exploring different visual directions that could represent each brand's unique identity. After presenting several concepts to stakeholders, I refined the chosen directions through multiple iterations, focusing on simplicity, memorability, and versatility. Each logo was designed to work effectively at different sizes and across various applications, from digital platforms to print materials. The final phase involved creating comprehensive style guides for each logo, ensuring consistent usage and proper implementation across all touchpoints.",
   images: [
+    // Iteration 1
     {
-      url: "/src/assets/work/studioLogo/logo-concept1.png",
+      url: "/src/assets/work/studioLogo/1.png",
       title: "Logo Concept 1",
-      caption: "Initial concept exploration for the studio logo"
+      caption: "Initial concept exploration for the studio logo",
+      group: "iterations"
     },
     {
-      url: "/src/assets/work/studioLogo/logo-concept2.png",
-      title: "Logo Concept 2",
-      caption: "Alternative concept with different visual approach"
+      url: "/src/assets/work/studioLogo/2.png",
+      title: "Logo Concept 1",
+      caption: "Alternative color for initial logo",
+      group: "iterations"
     },
     {
-      url: "/src/assets/work/studioLogo/logo-final.png",
+      url: "/src/assets/work/studioLogo/3.png",
+      title: "Logo Concept 1",
+      caption: "Alternative color for initial logo",
+      group: "iterations"
+    },
+    {
+      url: "/src/assets/work/studioLogo/BBLogo.png",
       title: "Final Logo",
-      caption: "The refined and finalized studio logo"
+      caption: "Iteration on initial logo with boyband theme",
+      group: "final"
+    },
+    {
+      url: "/src/assets/work/studioLogo/logoFB.png",
+      title: "Final Logo",
+      caption: "finalized studio logo",
+      group: "final"
+    },
+    {
+      url: "/src/assets/work/studioLogo/fyb logo.png",
+      title: "Final Logo",
+      caption: "shortened finalized studio logo",
+      group: "final"
     }
   ]
 }; 

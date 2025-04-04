@@ -120,15 +120,13 @@
 }
 
 /* Ensure the entire page content fades quickly */
-.learning-content {
-  /* Remove the existing transition */
-  /* transition: opacity 0.3s ease-in-out; */
+/* .learning-content {
+  transition: opacity 0.3s ease-in-out;
 }
 
 .page-inactive .learning-content {
-  /* Remove the existing transition */
-  /* transition: opacity 0.3s ease-in-out; */
-}
+  transition: opacity 0.3s ease-in-out;
+} */
 
 @media (max-width: 768px) {
   .moon-container {

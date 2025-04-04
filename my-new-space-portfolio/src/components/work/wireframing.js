@@ -47,17 +47,20 @@ export const wireframingWork = {
     {
       url: "/src/assets/work/wireframing/wireframe-low.png",
       title: "Low-Fidelity Wireframe",
-      caption: "Initial low-fidelity wireframe exploring layout options"
+      caption: "Initial low-fidelity wireframe exploring layout options",
+      group: "process"
     },
     {
       url: "/src/assets/work/wireframing/wireframe-mid.png",
       title: "Mid-Fidelity Wireframe",
-      caption: "Refined wireframe with more detailed components"
+      caption: "Refined wireframe with more detailed components",
+      group: "process"
     },
     {
       url: "/src/assets/work/wireframing/wireframe-high.png",
       title: "High-Fidelity Wireframe",
-      caption: "Final high-fidelity wireframe ready for implementation"
+      caption: "Final high-fidelity wireframe ready for implementation",
+      group: "process"
     }
   ]
 }; 

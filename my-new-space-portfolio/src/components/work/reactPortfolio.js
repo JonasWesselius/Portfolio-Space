@@ -47,15 +47,37 @@ export const reactPortfolioWork = {
   ],
   process: "I started this portfolio project by defining my goals and target audience. I wanted to create a space-themed portfolio that would stand out while showcasing my skills and projects effectively. The development process began with wireframing and prototyping using Figma, followed by implementing the core structure with React. I focused on creating reusable components and ensuring a responsive design that works well on all devices. Throughout the development, I continuously tested and refined the user experience, adding animations and transitions to enhance engagement. The final phase involved optimizing performance and ensuring cross-browser compatibility.",
   images: [
+    // Iteration 1 - Wireframes
     {
-      url: "/src/assets/work/Portfolio/portfolio-wireframe.png",
-      title: "Portfolio Wireframe",
+      url: "/src/assets/work/Portfolio/wireframes/Wireframe 1.png",
+      title: "Portfolio Wireframe 1",
       caption: "Initial wireframe for the portfolio layout"
     },
     {
-      url: "/src/assets/work/Portfolio/portfolio-mockup.png",
-      title: "Portfolio Mockup",
-      caption: "High-fidelity mockup of the portfolio design"
+      url: "/src/assets/work/Portfolio/wireframes/Wireframe 2.png",
+      title: "Portfolio Wireframe 2",
+      caption: "Initial wireframe showing navigation structure"
+    },
+    {
+      url: "/src/assets/work/Portfolio/wireframes/Wireframe 3.png",
+      title: "Portfolio Wireframe 3",
+      caption: "Initial wireframe for project details"
+    },
+    // Iteration 2 - Mockups
+    {
+      url: "/src/assets/work/Portfolio/mockUps/Home.png",
+      title: "Portfolio Home Mockup",
+      caption: "High-fidelity mockup of the home page"
+    },
+    {
+      url: "/src/assets/work/Portfolio/mockUps/LO's.png",
+      title: "Learning Outcomes Mockup",
+      caption: "High-fidelity mockup of the learning outcomes page"
+    },
+    {
+      url: "/src/assets/work/Portfolio/mockUps/Project.png",
+      title: "Project Details Mockup",
+      caption: "High-fidelity mockup of the project details page"
     }
   ]
 }; 

@@ -44,5 +44,28 @@ export const researchMethodsWork = {
       title: "You are aware of your strengths and pitfalls, both in the field of ICT and in your personal development. You take actions in line with your core values to promote your personal growth and learning attitude.",
       explanation: "Through this research project, I identified my strengths in data analysis and communication, as well as areas where I needed to improve, such as interview techniques and research design. I took action to address these challenges by seeking feedback and practicing new skills. This experience contributed to my personal growth and reinforced my commitment to evidence-based design."
     }
+  ],
+  process: "The research process began with defining clear objectives and selecting appropriate methodologies. I conducted user interviews, surveys, and observational studies to gather comprehensive data. The analysis phase involved coding interview transcripts, identifying patterns, and synthesizing findings into actionable insights. I documented the entire process, including methodology decisions, data collection techniques, and analysis approaches. The final phase involved presenting the findings to stakeholders and providing recommendations for implementation.",
+  images: [
+    {
+      url: "/src/assets/work/research/research-plan.png",
+      title: "Research Plan",
+      caption: "Initial research plan outlining methodologies and objectives"
+    },
+    {
+      url: "/src/assets/work/research/interview-notes.png",
+      title: "Interview Notes",
+      caption: "Documentation of user interviews and key insights"
+    },
+    {
+      url: "/src/assets/work/research/data-analysis.png",
+      title: "Data Analysis",
+      caption: "Analysis of collected data and identified patterns"
+    },
+    {
+      url: "/src/assets/work/research/findings-presentation.png",
+      title: "Findings Presentation",
+      caption: "Presentation of research findings and recommendations"
+    }
   ]
 }; 

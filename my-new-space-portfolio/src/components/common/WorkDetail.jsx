@@ -1,20 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { reactPortfolioWork } from '../work/reactPortfolio';
 import { brandguideStudioWork } from '../work/brandguideStudio';
 import { studioLogosWork } from '../work/studioLogos';
-import { reactNativeAppWork } from '../work/reactNativeApp';
 import { wireframingWork } from '../work/wireframing';
 import { researchMethodsWork } from '../work/researchMethods';
+import { motivationWork } from '../work/motivation';
+import { clientMeetingsWork } from '../work/clientMeetings';
+import { posterPresentationWork } from '../work/posterPresentation';
+import { personasWork } from '../work/personas';
+import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
 const workContent = {
   'react-portfolio': reactPortfolioWork,
   'brandguide-studio': brandguideStudioWork,
   'studio-logos': studioLogosWork,
-  'react-native-app': reactNativeAppWork,
   'wireframing': wireframingWork,
-  'research-methods': researchMethodsWork
+  'research-methods': researchMethodsWork,
+  'motivation': motivationWork,
+  'client-meetings': clientMeetingsWork,
+  'poster-presentation': posterPresentationWork,
+  'personas': personasWork
 };
 
 // Map learning outcome IDs to their section names
@@ -27,12 +34,8 @@ const learningOutcomeSections = {
 };
 
 function WorkDetail({ title, onBack, className, workId }) {
-  // Initialize currentImageIndices state
-  const [currentImageIndices, setCurrentImageIndices] = useState({
-    iteration1: 0,
-    iteration2: 0,
-    final: 0
-  });
+  const [currentImageIndices, setCurrentImageIndices] = useState({});
+  const [groupedImages, setGroupedImages] = useState({});
   
   const content = workContent[workId] || {
     description: "Detailed description of the work...",
@@ -44,35 +47,51 @@ function WorkDetail({ title, onBack, className, workId }) {
     images: []
   };
   
-  // Group images by iteration
-  const groupedImages = {
-    iteration1: content.images.filter(img => img.url.includes('iteration1')),
-    iteration2: content.images.filter(img => img.url.includes('iteration2')),
-    final: content.images.filter(img => img.url.includes('final'))
-  };
-  
-  // Navigation functions for each iteration
-  const goToNextImage = (iteration) => {
-    if (groupedImages[iteration] && groupedImages[iteration].length > 0) {
+  // Initialize currentImageIndices for each group
+  useEffect(() => {
+    // Group images by their folder path
+    const groups = content.images.reduce((groups, image) => {
+      const pathParts = image.url.split('/');
+      const groupName = pathParts[pathParts.length - 2]; // Get folder name
+      if (!groups[groupName]) {
+        groups[groupName] = [];
+      }
+      groups[groupName].push(image);
+      return groups;
+    }, {});
+    
+    setGroupedImages(groups);
+    
+    // Initialize indices
+    const indices = {};
+    Object.keys(groups).forEach(group => {
+      indices[group] = 0;
+    });
+    setCurrentImageIndices(indices);
+  }, [workId, content.images]);
+
+  // Navigation functions for each group
+  const goToNextImage = (group) => {
+    if (groupedImages[group] && groupedImages[group].length > 0) {
       setCurrentImageIndices(prev => ({
         ...prev,
-        [iteration]: prev[iteration] === groupedImages[iteration].length - 1 ? 0 : prev[iteration] + 1
+        [group]: (prev[group] + 1) % groupedImages[group].length
       }));
     }
   };
   
-  const goToPrevImage = (iteration) => {
-    if (groupedImages[iteration] && groupedImages[iteration].length > 0) {
+  const goToPrevImage = (group) => {
+    if (groupedImages[group] && groupedImages[group].length > 0) {
       setCurrentImageIndices(prev => ({
         ...prev,
-        [iteration]: prev[iteration] === 0 ? groupedImages[iteration].length - 1 : prev[iteration] - 1
+        [group]: prev[group] === 0 ? groupedImages[group].length - 1 : prev[group] - 1
       }));
     }
   };
-  
+
   // Render a single image carousel
-  const renderImageCarousel = (iteration, title) => {
-    const images = groupedImages[iteration];
+  const renderImageCarousel = (group, title) => {
+    const images = groupedImages[group];
     if (!images || images.length === 0) return null;
     
     return (
@@ -80,56 +99,67 @@ function WorkDetail({ title, onBack, className, workId }) {
         <h4>{title}</h4>
         <div className="work-images-container">
           {images.length > 1 && (
-            <>
-              <button 
-                className="image-nav-button prev-button" 
-                onClick={() => goToPrevImage(iteration)}
-                aria-label="Previous image"
-              >
-                <span>←</span>
-              </button>
-            </>
+            <button 
+              className="image-nav-button prev-button" 
+              onClick={() => goToPrevImage(group)}
+              aria-label="Previous image"
+            >
+              <span>←</span>
+            </button>
           )}
           <div className="work-image-item">
-            {images[currentImageIndices[iteration]].type === 'pdf' ? (
-              <a href={images[currentImageIndices[iteration]].url} target="_blank" rel="noopener noreferrer" className="pdf-link">
-                <div className="pdf-preview">
-                  <span className="pdf-icon">📄</span>
-                  <span className="pdf-title">{images[currentImageIndices[iteration]].title || 'View PDF'}</span>
-                </div>
-              </a>
-            ) : (
-              <img 
-                src={images[currentImageIndices[iteration]].url} 
-                alt={images[currentImageIndices[iteration]].title || 'Work image'} 
-                className="work-image-preview" 
-              />
-            )}
-            {images[currentImageIndices[iteration]].caption && (
-              <p className="image-caption">{images[currentImageIndices[iteration]].caption}</p>
+            <img 
+              src={images[currentImageIndices[group] || 0].url} 
+              alt={images[currentImageIndices[group] || 0].title} 
+              className="work-image-preview" 
+            />
+            {images[currentImageIndices[group] || 0].caption && (
+              <p className="image-caption">{images[currentImageIndices[group] || 0].caption}</p>
             )}
             {images.length > 1 && (
               <div className="image-counter">
-                {currentImageIndices[iteration] + 1} / {images.length}
+                {(currentImageIndices[group] || 0) + 1} / {images.length}
               </div>
             )}
           </div>
           {images.length > 1 && (
-            <>
-              <button 
-                className="image-nav-button next-button" 
-                onClick={() => goToNextImage(iteration)}
-                aria-label="Next image"
-              >
-                <span>→</span>
-              </button>
-            </>
+            <button 
+              className="image-nav-button next-button" 
+              onClick={() => goToNextImage(group)}
+              aria-label="Next image"
+            >
+              <span>→</span>
+            </button>
           )}
         </div>
       </div>
     );
   };
-  
+
+  // Define external links for each work item
+  const externalLinks = {
+    'react-portfolio': {
+      text: 'View GitHub Repository',
+      url: 'https://github.com/JonasWesselius/Portfolio-Space',
+      icon: '🔗'
+    },
+    'woodworks': {
+      text: 'View GitHub Repository',
+      url: 'https://github.com/JonasWesselius/Woodworks',
+      icon: '🔗'
+    },
+    'brandguide-studio': {
+      text: 'View Figma Design',
+      url: 'https://www.figma.com/design/zNRZdl8VHP0QpYVRtsa54f/Frontyard-Boys?node-id=0-1&t=lUU0BWCFBXjeVeNq-1',
+      icon: '🎨'
+    },
+    'research-methods': {
+      text: 'View Research PDF',
+      url: '/src/assets/work/research/research-document.pdf',
+      icon: '📄'
+    }
+  };
+
   return (
     <div className={`work-detail ${className}`}>
       <button className="back-button" onClick={onBack}>
@@ -138,6 +168,18 @@ function WorkDetail({ title, onBack, className, workId }) {
       
       <div className="work-detail-content">
         <h2>{title}</h2>
+        
+        {/* Add external link button if available */}
+        {externalLinks[workId] && (
+          <a 
+            href={externalLinks[workId].url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="external-link-button"
+          >
+            <span>{externalLinks[workId].icon}</span> {externalLinks[workId].text}
+          </a>
+        )}
         
         <div className="work-description">
           <p>{content.description}</p>
@@ -163,6 +205,50 @@ function WorkDetail({ title, onBack, className, workId }) {
             <p>{content.process}</p>
           </div>
           
+          {/* Add Interview Audio Players if available */}
+          {content.interviews && content.interviews.length > 0 && (
+            <>
+              <h3>Research Interviews</h3>
+              <div className="interviews-section">
+                {content.interviews.map((interview, index) => (
+                  <AudioPlayer 
+                    key={index}
+                    audioUrl={interview.url}
+                    title={interview.title}
+                    description={interview.description}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+          
+          {/* Add Resources if available */}
+          {content.resources && content.resources.length > 0 && (
+            <>
+              <h3>Additional Resources</h3>
+              <div className="resources-section">
+                {content.resources.map((resource, index) => (
+                  <div key={index} className="resource-item">
+                    <a 
+                      href={resource.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="resource-link"
+                    >
+                      <span className="resource-icon">
+                        {resource.type === 'pdf' ? '📄' : '🔗'}
+                      </span>
+                      <div className="resource-info">
+                        <h4>{resource.title}</h4>
+                        <p>{resource.description}</p>
+                      </div>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+          
           <h3>Key Learning Points</h3>
           <ul>
             {content.learningPoints.map((point, index) => (
@@ -180,11 +266,17 @@ function WorkDetail({ title, onBack, className, workId }) {
           {content.images && content.images.length > 0 && (
             <>
               <h3>Work Images</h3>
-              
-              {/* Render separate carousels for each iteration */}
-              {renderImageCarousel('iteration1', 'Iteration 1')}
-              {renderImageCarousel('iteration2', 'Iteration 2')}
-              {renderImageCarousel('final', 'Final Version')}
+              {Object.keys(groupedImages).map(group => {
+                // Convert folder names to display titles
+                const displayTitles = {
+                  'iteration1': 'Iteration 1',
+                  'iteration2': 'Iteration 2',
+                  'final': 'Final Version',
+                  'wireframes': 'Wireframes',
+                  'mockUps': 'Design Mockups'
+                };
+                return renderImageCarousel(group, displayTitles[group] || group);
+              })}
             </>
           )}
         </div>
