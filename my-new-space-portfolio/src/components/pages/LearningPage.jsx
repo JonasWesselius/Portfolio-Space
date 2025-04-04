@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import moonImg from '../../assets/moon.png';
 import placeholder1 from '../../assets/placeholder1.png';
 import placeholder2 from '../../assets/placeholder2.png';
@@ -30,14 +31,14 @@ const workItems = [
     section: 2
   },
   {
-    id: 'react-native-app',
-    title: "React Native App",
+    id: 'woodworks',
+    title: "Woodworks Overhaul",
     image: placeholder2,
     section: 3
   },
   {
-    id: 'wireframing',
-    title: "Wireframing",
+    id: 'studio-presentations',
+    title: "Studio Presentations",
     image: placeholder1,
     section: 4
   },
@@ -46,26 +47,32 @@ const workItems = [
     title: "Research methods",
     image: placeholder2,
     section: 5
+  },
+  {
+    id: 'client-meetings',
+    title: "Client meetings",
+    image: placeholder1,
+    section: 6
   }
 ];
 
 function LearningPage({ onNavigate, workPath }) {
-  const [currentSection, setCurrentSection] = useState('personal');
+  const [currentSection, setCurrentSection] = useState(0);
   const [selectedWork, setSelectedWork] = useState(null);
-  const [isWorkDetailVisible, setIsWorkDetailVisible] = useState(false);
   const gridRef = useRef(null);
   const isScrolling = useRef(false);
+  const navigate = useNavigate();
 
-  // Handle URL-based work selection
   useEffect(() => {
     if (workPath) {
       const work = workItems.find(item => item.id === workPath);
       if (work) {
         setSelectedWork(work);
-        setCurrentSection(work.section);
+        const sectionIndex = sections.findIndex(section => section.id === work.section);
+        if (sectionIndex !== -1) {
+          setCurrentSection(sectionIndex);
+        }
       }
-    } else {
-      setSelectedWork(null);
     }
   }, [workPath]);
 
@@ -144,19 +151,26 @@ function LearningPage({ onNavigate, workPath }) {
 
   const handleWorkClick = (work) => {
     setSelectedWork(work);
+    navigate(`/learning/${work.id}`);
+    
+    // Add a small delay to ensure the component is mounted before adding the visible class
     setTimeout(() => {
-      setIsWorkDetailVisible(true);
+      const workDetail = document.querySelector('.work-detail');
+      if (workDetail) {
+        workDetail.classList.add('visible');
+      }
     }, 50);
   };
 
   const handleBackToLearning = () => {
-    const workDetailElement = document.querySelector('.work-detail');
-    workDetailElement.classList.add('sliding-down');
+    const workDetail = document.querySelector('.work-detail');
+    workDetail.classList.remove('visible');
+    workDetail.classList.add('sliding-down');
     
     setTimeout(() => {
       setSelectedWork(null);
-      setIsWorkDetailVisible(false);
-      workDetailElement.classList.remove('sliding-down');
+      navigate('/learning');
+      workDetail.classList.remove('sliding-down');
     }, 300);
   };
 
@@ -196,7 +210,6 @@ function LearningPage({ onNavigate, workPath }) {
           <WorkDetail 
             title={selectedWork.title}
             onBack={handleBackToLearning}
-            className={isWorkDetailVisible ? 'visible' : ''}
             workId={selectedWork.id}
           />
         )}

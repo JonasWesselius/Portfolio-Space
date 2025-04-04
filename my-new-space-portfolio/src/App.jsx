@@ -63,7 +63,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<PageWrapper />} />
+        <Route path="/" element={<PageWrapper />} />
+        <Route path="/projects" element={<PageWrapper />} />
+        <Route path="/learning" element={<PageWrapper />} />
+        <Route path="/learning/:workId" element={<PageWrapper />} />
       </Routes>
     </Router>
   )

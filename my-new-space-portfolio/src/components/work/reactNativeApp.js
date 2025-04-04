@@ -39,5 +39,23 @@ export const reactNativeAppWork = {
       title: "Professional standard: Individually and in teams, you will apply a methodological approach used by the field to formulate project goals, involve stakeholders, conduct action-oriented research, advise, take decisions and report. In take into account ethical, intercultural and sustainable considerations.",
       explanation: "I approached this project with a professional methodology, setting clear goals and involving stakeholders throughout the development process. I conducted user research to inform design decisions and considered accessibility to ensure the app was inclusive. I also took into account ethical considerations regarding data usage and privacy."
     }
+  ],
+  process: "The development process began with extensive planning and research, including user needs analysis and technical requirements gathering. I created wireframes and prototypes to visualize the app's flow and functionality. The implementation phase followed an agile methodology, with regular testing and feedback cycles. I focused on creating reusable components and implementing efficient state management. Performance optimization was a key consideration throughout development, ensuring smooth animations and quick load times. The final phase involved thorough testing across different devices and platforms, followed by deployment preparation.",
+  images: [
+    {
+      url: "/src/assets/work/reactNativeApp/app-wireframe.png",
+      title: "App Wireframe",
+      caption: "Initial wireframe showing the app's layout and navigation structure"
+    },
+    {
+      url: "/src/assets/work/reactNativeApp/app-prototype.png",
+      title: "Interactive Prototype",
+      caption: "High-fidelity prototype demonstrating key user flows"
+    },
+    {
+      url: "/src/assets/work/reactNativeApp/app-final.png",
+      title: "Final App Screens",
+      caption: "Screenshots of the completed app showing the polished UI"
+    }
   ]
 }; 

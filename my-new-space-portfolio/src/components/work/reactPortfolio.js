@@ -44,5 +44,18 @@ export const reactPortfolioWork = {
       title: "You are aware of your strengths and pitfalls, both in the field of ICT and in your personal development. You take actions in line with your core values to promote your personal growth and learning attitude.",
       explanation: "This portfolio itself is a demonstration of my personal growth and learning attitude. Through its creation, I identified areas where I needed to improve (such as performance optimization and responsive design) and took action to address these challenges. The project reflects my core values of continuous learning and professional development."
     }
+  ],
+  process: "I started this portfolio project by defining my goals and target audience. I wanted to create a space-themed portfolio that would stand out while showcasing my skills and projects effectively. The development process began with wireframing and prototyping using Figma, followed by implementing the core structure with React. I focused on creating reusable components and ensuring a responsive design that works well on all devices. Throughout the development, I continuously tested and refined the user experience, adding animations and transitions to enhance engagement. The final phase involved optimizing performance and ensuring cross-browser compatibility.",
+  images: [
+    {
+      url: "/src/assets/work/Portfolio/portfolio-wireframe.png",
+      title: "Portfolio Wireframe",
+      caption: "Initial wireframe for the portfolio layout"
+    },
+    {
+      url: "/src/assets/work/Portfolio/portfolio-mockup.png",
+      title: "Portfolio Mockup",
+      caption: "High-fidelity mockup of the portfolio design"
+    }
   ]
 }; 
