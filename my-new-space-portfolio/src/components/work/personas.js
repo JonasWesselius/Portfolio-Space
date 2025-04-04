@@ -1,36 +1,34 @@
 export const personasWork = {
   title: "User Personas for IMA Projects",
-  description: "A collection of detailed user personas created for various IMA projects. These personas demonstrate my ability to synthesize research data into meaningful user representations that guide design decisions and ensure user-centered development.",
+  description: "A collection of detailed user personas created for our project with IMA. These personas demonstrate my ability to visualize research data into meaningful user representations that guide design decisions and ensure user-centered development.",
   learningPoints: [
-    "User research synthesis",
+    "User research",
     "Persona development",
     "User-centered design",
-    "Empathy building",
-    "Design documentation",
+    "Interviewing",
     "Stakeholder communication"
   ],
   technologies: [
-    "User Research",
     "Persona Creation",
-    "Adobe Illustrator",
-    "Design Documentation",
-    "User-Centered Design",
+    "Figma",
+    "Office Word",
+    "Google Translate",
     "Visual Communication"
   ],
-  learningOutcome: "Through creating these personas, I developed skills in synthesizing complex user research data into clear, actionable user representations. I learned how to identify key user characteristics, behaviors, and needs, and how to present this information in a way that resonates with stakeholders and guides design decisions.",
+  learningOutcome: "Through creating these personas, I developed skills in synthesizing user research data into clear, actionable user representations. I learned how to identify key user characteristics, behaviors, and needs, and how to present this information in a way that resonates with stakeholders and guides design decisions.",
   learningOutcomes: [
     {
       id: "iterations",
       title: "You present the successive iterations of your creative process, and the connections between them.",
-      explanation: "The personas went through multiple iterations based on interview findings. Each iteration refined the user characteristics and pain points, with clear connections to specific interview insights. For example, the BSN requirement emerged as a common barrier across interviews, leading to its inclusion as a key challenge in relevant personas."
+      explanation:"Based on the results of the interviews, the personas underwent some iterations. With distinct links to certain interview insights, each iteration improved the user's traits and problems. For instance, the BSN requirement was mentioned as a major problem in the target audience since it was found to be a prevalent obstacle in interviews. Things like relationship status and work experience turned out to be less useful than time spent in the Netherlands and languages, for example."
     },
     {
       id: "professional",
       title: "Professional standard: Individually and in teams, you will apply a methodological approach used by the field to formulate project goals, involve stakeholders, conduct action-oriented research, advise, take decisions and report. In take into account ethical, intercultural and sustainable considerations.",
-      explanation: "The interview process demonstrated professional research methodology, ensuring ethical considerations and cultural sensitivity. I carefully documented the diverse perspectives of asylum seekers from different countries, considering their unique cultural backgrounds and experiences while maintaining confidentiality and respect."
+      explanation:"Throughout the interview process, professional methodology was shown while upholding ethical and cultural awareness. I created the questions such that the target audience would not be offended or hurt in order to maintain anonymity and respect. Since they find this to be such a sensitive subject."
     }
   ],
-  process: "The persona development process began with conducting in-depth interviews with six diverse asylum seekers from different countries (Iran, Bangladesh, Nigeria, Sudan, Syria, and Turkey). These interviews revealed common themes and unique challenges in their job search journeys. Key findings included language barriers, BSN requirements, CV creation difficulties, and transportation issues. I analyzed these interviews to identify patterns in their experiences, needs, and aspirations. Based on this research, I developed detailed personas that represent different segments of the target audience, each with distinct characteristics, challenges, and goals. The personas were refined through multiple iterations, incorporating feedback from stakeholders and ensuring they accurately represented the diverse experiences uncovered in the interviews.",
+  process: "Making what I believed to be the stereotypical asylum seeker was the first step in developing the persona. Since I felt it would be interesting to compare my perception of the target audience with the actual personas resulting from the interviews we were going to do later, I used all of my personal knowledge and experience to create this. We had in-depth interviews with seven different asylum applicants from Iran, Bangladesh, Nigeria, Sudan, Syria, and Turkey after I completed my own persona. These interviews uncovered recurring themes and particular difficulties they faced when looking for work. Language barriers, BSN requirements, CV building difficulties, and transportation constraints were among the main results. In order to find trends in their needs, goals, and experiences, I examined these interviews. I created comprehensive personas based on this study that reflect many target audience segments, each with unique traits, difficulties, and objectives. The stakeholder has been sent these personas, and we are now expecting their feedback.",
   images: [
     {
       url: "/src/assets/work/personas/Frame 4.png",
@@ -39,7 +37,7 @@ export const personasWork = {
     },
     {
       url: "/src/assets/work/personas/Frame 15.png",
-      title: "Non-educatated Asylum Seeker",
+      title: "Non-educated Asylum Seeker",
       caption: "Persona representing asylum seekers with limited formal education, highlighting specific challenges and needs"
     },
     {
