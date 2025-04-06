@@ -1,6 +1,6 @@
 export const motivationWork = {
   title: "Client Motivation",
-  description: "A comprehensive motivation document created for my client, explaining my approach, goals, and vision for our collaboration. This project demonstrates my ability to communicate professionally and align project objectives with client needs.",
+  description: "A motivation document created for Maikel and Petra's boardgame project, explaining why our studio team would be the best choice for their project. This work demonstrates my ability to analyze project requirements and communicate our team's strengths effectively.",
   learningPoints: [
     "Professional communication",
     "Project vision development",
@@ -16,15 +16,15 @@ export const motivationWork = {
     "Documentation",
     "Strategic Planning"
   ],
-  learningOutcome: "Through creating this motivation document, I learned how to effectively communicate my professional vision and capabilities to clients. The process helped me develop skills in articulating project goals, demonstrating value, and establishing clear expectations for collaboration.",
+  learningOutcome: "Through creating this motivation document, I learned how to analyze client presentations, identify key project requirements, and articulate why our team would be the best fit. I also developed skills in transforming a basic Word document into a professionally styled PDF that aligned with our studio's brand identity.",
   learningOutcomes: [
     {
       id: "professional",
       title: "Professional standard: Individually and in teams, you will apply a methodological approach used by the field to formulate project goals, involve stakeholders, conduct action-oriented research, advise, take decisions and report. In take into account ethical, intercultural and sustainable considerations.",
-      explanation: "In developing the motivation document, I demonstrated professional communication by clearly articulating my goals, approach, and vision. I applied a methodical approach to presenting my capabilities and project plans, while considering the client's needs and expectations."
+      explanation: "After reviewing multiple client presentations, I took the initiative to document our team's motivation for choosing the boardgame project. I methodically analyzed the presentation, identified key points that resonated with our team's capabilities, and created a professional document that was later enhanced with our studio's brand style. The team's agreement with my writing demonstrated effective stakeholder communication."
     }
   ],
-  process: "The motivation document was created through careful consideration of the client's needs and my professional capabilities. I focused on clearly communicating my vision, approach, and the value I could bring to the project. The document went through several revisions to ensure clarity and professionalism in presentation.",
+  process:"We received a few presentations of various clients and their projects at the end of the studio phase. Following the conclusion of these presentations, we were required to present the motivations behind our first and second choices. Maikel and Petra's boardgame project was our first pick. I was in charge of drafting this motivation, so I went back and reviewed the presentation and noted any points that really stood out to us. and why their project would be most suitable for our studio. I showed my motivational writing to the team once I was done, and they all agreed with it. Later, I turned it from a dull Word document into a polished PDF by using our brandstyle.",
   images: [
     {
       url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/54-k7mS8yUZVZhz2qYwqUmGbmDN5iCTeU.png",

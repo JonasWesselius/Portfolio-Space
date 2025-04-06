@@ -43,10 +43,10 @@ const workItems = [
     section: 4
   },
   {
-    id: 'research-methods',
-    title: "Research methods",
+    id: 'personas',
+    title: "User Personas",
     image: placeholder2,
-    section: 5
+    section: 9
   },
   {
     id: 'client-meetings',
@@ -54,6 +54,7 @@ const workItems = [
     image: placeholder1,
     section: 6
   },
+
   {
     id: 'motivation',
     title: "Motivation",
@@ -65,12 +66,6 @@ const workItems = [
     title: "Poster Presentation",
     image: placeholder1,
     section: 8
-  },
-  {
-    id: 'personas',
-    title: "User Personas",
-    image: placeholder2,
-    section: 9
   }
 ];
 
