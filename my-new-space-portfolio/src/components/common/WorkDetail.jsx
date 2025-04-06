@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { reactPortfolioWork } from '../work/reactPortfolio';
 import { brandguideStudioWork } from '../work/brandguideStudio';
 import { studioLogosWork } from '../work/studioLogos';
-import { wireframingWork } from '../work/wireframing';
-import { researchMethodsWork } from '../work/researchMethods';
 import { motivationWork } from '../work/motivation';
 import { clientMeetingsWork } from '../work/clientMeetings';
 import { posterPresentationWork } from '../work/posterPresentation';
@@ -14,16 +12,14 @@ import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
 const workContent = {
-  'woodworks': woodworksWork,
   'react-portfolio': reactPortfolioWork,
   'brandguide-studio': brandguideStudioWork,
   'studio-logos': studioLogosWork,
-  'wireframing': wireframingWork,
-  'research-methods': researchMethodsWork,
   'motivation': motivationWork,
   'client-meetings': clientMeetingsWork,
   'poster-presentation': posterPresentationWork,
-  'personas': personasWork
+  'personas': personasWork,
+  'woodworks': woodworksWork
 };
 
 // Map learning outcome IDs to their section names

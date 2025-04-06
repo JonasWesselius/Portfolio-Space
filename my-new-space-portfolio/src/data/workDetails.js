@@ -2,8 +2,6 @@
 import { reactPortfolioWork } from '../components/work/reactPortfolio';
 import { brandguideStudioWork } from '../components/work/brandguideStudio';
 import { studioLogosWork } from '../components/work/studioLogos';
-import { wireframingWork } from '../components/work/wireframing';
-import { researchMethodsWork } from '../components/work/researchMethods';
 import { motivationWork } from '../components/work/motivation';
 import { clientMeetingsWork } from '../components/work/clientMeetings';
 import { posterPresentationWork } from '../components/work/posterPresentation';
@@ -24,8 +22,6 @@ export const workDetails = {
   'react-portfolio': reactPortfolioWork,
   'brandguide-studio': brandguideStudioWork,
   'studio-logos': studioLogosWork,
-  'wireframing': wireframingWork,
-  'research-methods': researchMethodsWork,
   'motivation': motivationWork,
   'client-meetings': clientMeetingsWork,
   'poster-presentation': posterPresentationWork,
