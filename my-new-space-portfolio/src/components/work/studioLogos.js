@@ -44,37 +44,37 @@ export const studioLogosWork = {
   images: [
     // Iteration 1
     {
-      url: "/src/assets/work/studioLogo/1.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/1-hLmD24qYNm5iSPYJhEuITs2i93jO5b.png",
       title: "Logo Concept 1",
       caption: "Initial concept exploration for the studio logo",
       group: "iterations"
     },
     {
-      url: "/src/assets/work/studioLogo/2.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/2-AEaQ0fW0IVe5zI74ODTlxblMuMf4wO.png",
       title: "Logo Concept 1",
       caption: "Alternative color for initial logo",
       group: "iterations"
     },
     {
-      url: "/src/assets/work/studioLogo/3.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/3-xwLq8aIyhEMjS2eSl4eMSXCExFEOm0.png",
       title: "Logo Concept 1",
       caption: "Alternative color for initial logo",
       group: "iterations"
     },
     {
-      url: "/src/assets/work/studioLogo/BBLogo.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/BBLogo-ObY4zeryIuWnadr9Fp9CpDdj9Qryp9.png",
       title: "Final Logo",
       caption: "Iteration on initial logo with boyband theme",
       group: "final"
     },
     {
-      url: "/src/assets/work/studioLogo/logoFB.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/logoFB-cnFZBtuutQwPaCfmPdZ2qrgkp52GUR.png",
       title: "Final Logo",
       caption: "finalized studio logo",
       group: "final"
     },
     {
-      url: "/src/assets/work/studioLogo/fyb logo.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/studioLogo/fyb%20logo-sS5iiczXfdpTgzWIEkgK19WbqXLNce.png",
       title: "Final Logo",
       caption: "shortened finalized studio logo",
       group: "final"

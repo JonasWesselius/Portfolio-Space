@@ -27,43 +27,43 @@ export const motivationWork = {
   process: "The motivation document was created through careful consideration of the client's needs and my professional capabilities. I focused on clearly communicating my vision, approach, and the value I could bring to the project. The document went through several revisions to ensure clarity and professionalism in presentation.",
   images: [
     {
-      url: "/src/assets/work/motivation/54.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/54-k7mS8yUZVZhz2qYwqUmGbmDN5iCTeU.png",
       title: "Motivation Document - Page 1",
       caption: "Introduction and overview of my professional approach",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/55.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/55-PoM2ySNIgx6DQ1XTXcRktUruJz3v2U.png",
       title: "Motivation Document - Page 2",
       caption: "Table of contents",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/56.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/56-dcfTOjoxoUuSrMgrfTp5DvlsoFMx2X.png",
       title: "Motivation Document - Page 3",
       caption: "Introduction",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/57.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/57-ZMfY1S9WGWZqi2MizDbrjaoNqaDecK.png",
       title: "Motivation Document - Page 4",
       caption: "The team",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/58.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/58-dFjmHLvrPryOOzvBbPKKSSqJlffNaS.png",
       title: "Motivation Document - Page 5",
       caption: "Detailed explanation of project vision and goals",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/59.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/59-CFGWdDlBOchvUvlgxEaqEojelebH1m.png",
       title: "Motivation Document - Page 6",
       caption: "Why we are the best team for this project",
       group: "document"
     },
     {
-      url: "/src/assets/work/motivation/60.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/motivation/60-LcdfH9V6V7eNbv3jAqlBQFTzMnPxZp.png",
       title: "Motivation Document - Page 7",
       caption: "Final slide",
       group: "document"

@@ -49,38 +49,38 @@ export const reactPortfolioWork = {
   images: [
     // Iteration 1 - Wireframes
     {
-      url: "/src/assets/work/Portfolio/wireframes/Wireframe 1.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/wireframes/Wireframe%201-yw8qwMvKL4Gru7c2DmmNLUummtMVdz.png",
       title: "Portfolio Wireframe 1",
       caption: "Initial wireframe for the portfolio layout"
     },
     {
-      url: "/src/assets/work/Portfolio/wireframes/Wireframe 2.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/wireframes/Wireframe%202-TZojKhT95i04pd3bXo2EDkPPruMtDo.png",
       title: "Portfolio Wireframe 2",
       caption: "Initial wireframe showing navigation structure"
     },
     {
-      url: "/src/assets/work/Portfolio/wireframes/Wireframe 3.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/wireframes/Wireframe%203-nT9OtTc58XTlVE6hevaGOFzFh9STUS.png",
       title: "Portfolio Wireframe 3",
       caption: "Initial wireframe for project details"
     },
     // Iteration 2 - Mockups
     {
-      url: "/src/assets/work/Portfolio/mockUps/Home.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/mockUps/Home-S5SFZfvqcF1Rb92YAnN0Xz1LPSErz6.png",
       title: "Portfolio Home Mockup",
       caption: "High-fidelity mockup of the home page"
     },
     {
-      url: "/src/assets/work/Portfolio/mockUps/LO's.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/mockUps/LO%27s-akajwViIELGcUhJFIIDWuLsMByzGnz.png",
       title: "Learning Outcomes Mockup",
       caption: "High-fidelity mockup of the learning outcomes page"
     },
     {
-      url: "/src/assets/work/Portfolio/mockUps/Project.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/mockUps/Project-UDgO5V1aTCwajfUFUNuiAgCllS99jP.png",
       title: "Project Details Mockup",
       caption: "High-fidelity mockup of the project details page"
     },
     {
-      url: "/src/assets/work/Portfolio/busy.gif",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/busy-NTKrJAGb8qy1o6pQJ3QaDqTrAHDAYV.gif",
       title: "Initial Animation Design",
       caption: "Early prototype featuring floating and shooting animations. This version was later simplified to the current star constellation design for better usability and visual clarity.",
       group: "iterations"

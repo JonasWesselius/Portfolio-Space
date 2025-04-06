@@ -35,33 +35,33 @@ export const posterPresentationWork = {
   images: [
     // Design Process Images
     {
-      url: "/src/assets/work/posterIMA/design/poster IMA Projects.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/design/Poster%20IMA%20Projects-iYsFMyNSugkNo1YhhtVrIOdkGkU9bX.png",
       title: "Poster Design - Overview",
       caption: "My initial poster design"
     },
     {
-      url: "/src/assets/work/posterIMA/design/Poster IMA Chosen.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/design/Poster%20IMA%20Chosen-di1jUdFnvIYJfvUx2uuzkXfT3xoQQ0.png",
       title: "Research Methodology Section",
       caption: "The chosen poster design made by a different group member"
     },
     {
-      url: "/src/assets/work/posterIMA/design/Poster IMA Final.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/design/Poster%20IMA%20Final-MhO9PWoYCfn3OsU21VCMuRJqDRI0fj.png",
       title: "Findings and Recommendations",
       caption: "Final poster design showing the overall layout and visual approach"
     },
     // Production Process Images
     {
-      url: "/src/assets/work/posterIMA/production/production1.jpg",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/production/production1-q2pk5kFFDxpnyWmFSKkVVSCKvPIXb4.jpg",
       title: "Poster Production",
       caption: "Getting hands-on experience with the creator space printing facilities"
     },
     {
-      url: "/src/assets/work/posterIMA/production/production2.jpg",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/production/production2-JfkW8PB0EnHdyknLEP1kUGSLY9BoyM.jpg",
       title: "Poster Production",
       caption: "Getting hands-on experience with the creator space cutting facilities"
     },
     {
-      url: "/src/assets/work/posterIMA/production/production3.jpg",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/production/production3-2SJO5B8ZmWkLQD7pq9qBrXfqRfJeDr.jpg",
       title: "Poster Production",
       caption: "Final Product"
     }

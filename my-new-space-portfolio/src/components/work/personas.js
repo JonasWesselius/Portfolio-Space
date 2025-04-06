@@ -31,71 +31,71 @@ export const personasWork = {
   process: "Making what I believed to be the stereotypical asylum seeker was the first step in developing the persona. Since I felt it would be interesting to compare my perception of the target audience with the actual personas resulting from the interviews we were going to do later, I used all of my personal knowledge and experience to create this. We had in-depth interviews with seven different asylum applicants from Iran, Bangladesh, Nigeria, Sudan, Syria, and Turkey after I completed my own persona. These interviews uncovered recurring themes and particular difficulties they faced when looking for work. Language barriers, BSN requirements, CV building difficulties, and transportation constraints were among the main results. In order to find trends in their needs, goals, and experiences, I examined these interviews. I created comprehensive personas based on this study that reflect many target audience segments, each with unique traits, difficulties, and objectives. The stakeholder has been sent these personas, and we are now expecting their feedback.",
   images: [
     {
-      url: "/src/assets/work/personas/Frame 4.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/personas/Frame%204-DJQJfWuJttdfspioDTrvVZJk5SEuI4.png",
       title: "Assumption User Persona",
       caption: "Initial assumption-based persona created before research to guide early design decisions"
     },
     {
-      url: "/src/assets/work/personas/Frame 15.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/personas/Frame%2015-filh3GBqfmXnZWhs1gQvaTHiaiFRi6.png",
       title: "Non-educated Asylum Seeker",
       caption: "Persona representing asylum seekers with limited formal education, highlighting specific challenges and needs"
     },
     {
-      url: "/src/assets/work/personas/Frame 16.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/personas/Frame%2016-9Hz9K4Yhhqe1xiOSVipzaaEZS6j9vP.png",
       title: "Educated Asylum Seeker",
       caption: "Persona representing asylum seekers with higher education backgrounds, showing different opportunities and barriers"
     },
     {
-      url: "/src/assets/work/personas/Frame 17.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/personas/Frame%2017-MdnxlDU6Bs5wNVemY27mtCcEVpuQvT.png",
       title: "Statusholder",
       caption: "Persona representing refugees who have obtained legal status, showing post-asylum integration challenges"
     },
     {
-      url: "/src/assets/work/personas/Group 539.png",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/personas/Group%20539-ekFHJXYHueUCqY4YkNEfLbZUkAPb8Z.png",
       title: "Employer Persona",
       caption: "Persona representing potential employers, highlighting their needs and concerns regarding refugee employment"
     }
   ],
   interviews: [
     {
-      url: "/src/assets/audio/interview 1 Perzisch.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%201%20Perzisch-16PpVE34eZopUpeplSSuYvjGBkNROb.m4a",
       title: "Interview with asylum seeker and interpreter",
       description: "Discussion about language barriers and employment challenges"
     },
     {
-      url: "/src/assets/audio/interview 2 Banglash.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%202%20Banglash-DIY030mwXBIdsFi2Zrm43qT2ojmjom.m4a",
       title: "Interview with statusholder fluent in Dutch",
       description: "Experiences with the Dutch job market after obtaining status"
     },
     {
-      url: "/src/assets/audio/interview 3 Nigerian.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%203%20Nigerian-pjyO4p6aKbvMSz8P0mjeSKKODQPufk.m4a",
       title: "Interview with asylum seeker fluent in English",
       description: "Insights on professional background and integration process"
     },
     {
-      url: "/src/assets/audio/interview 4 Sudan Vrouw.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%204%20Sudan%20Vrouw-FCnNIIftpYr1YOiQaLytS7trxI1Jbg.m4a",
       title: "Interview with female asylum seeker",
       description: "A female point of view on hiring refugees and perceived challenges"
     },
     {
-      url: "/src/assets/audio/interview 5 Syrian.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%205%20Syrian-wW8tfXv7YCQQ0sTdCGNR04vZZS5xpg.m4a",
       title: "Interview with young asylum seeker and interpreter",
       description: "Discussion about language barriers, integration process and employment challenges"
     },
     {
-      url: "/src/assets/audio/interview 6 Turkije.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%206%20Turkije-VgR0ufdqRjDf5MNUZqCVLUL9gmbbut.m4a",
       title: "Interview with un-educated asylum seeker",
       description: "Insights on professional background and integration process"
     },
     {
-      url: "/src/assets/audio/interview 7 Syrian Vrouw.m4a",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/audio/Interview%207%20Syrian%20Vrouw-adqqHXYmmS2idFcaDJh7UqmD982OBa.m4a",
       title: "Interview with educated asylum seeker",
       description: "Experiences with the Dutch job market as a young educated woman"
     }
   ],
   resources: [
     {
-      url: "/src/assets/PDFS/IMA Interview Transcript.pdf",
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/PDFS/IMA%20Interview%20Transcript-GPzP4DR6z2UCbB07wqzPnk4VsLf8yA.pdf",
       title: "Interview Transcriptions",
       description: "Detailed transcriptions of all interviews conducted with asylum seekers and stakeholders",
       type: "pdf"
