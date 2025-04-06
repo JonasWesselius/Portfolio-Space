@@ -9,10 +9,12 @@ import { motivationWork } from '../work/motivation';
 import { clientMeetingsWork } from '../work/clientMeetings';
 import { posterPresentationWork } from '../work/posterPresentation';
 import { personasWork } from '../work/personas';
+import { woodworksWork } from '../work/woodworks';
 import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
 const workContent = {
+  'woodworks': woodworksWork,
   'react-portfolio': reactPortfolioWork,
   'brandguide-studio': brandguideStudioWork,
   'studio-logos': studioLogosWork,

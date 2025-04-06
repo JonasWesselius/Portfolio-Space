@@ -8,6 +8,7 @@ import { motivationWork } from '../components/work/motivation';
 import { clientMeetingsWork } from '../components/work/clientMeetings';
 import { posterPresentationWork } from '../components/work/posterPresentation';
 import { personasWork } from '../components/work/personas';
+import { woodworksWork } from '../components/work/woodworks';
 
 // Map learning outcome IDs to their section names
 export const learningOutcomeSections = {
@@ -28,5 +29,6 @@ export const workDetails = {
   'motivation': motivationWork,
   'client-meetings': clientMeetingsWork,
   'poster-presentation': posterPresentationWork,
-  'personas': personasWork
+  'personas': personasWork,
+  'woodworks': woodworksWork
 }; 
