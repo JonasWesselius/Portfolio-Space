@@ -13,8 +13,7 @@ export const motivationWork = {
     "Professional Writing",
     "Project Management",
     "Client Communication",
-    "Documentation",
-    "Strategic Planning"
+    "Documentation"
   ],
   learningOutcome: "Through creating this motivation document, I learned how to analyze client presentations, identify key project requirements, and articulate why our team would be the best fit. I also developed skills in transforming a basic Word document into a professionally styled PDF that aligned with our studio's brand identity.",
   learningOutcomes: [
