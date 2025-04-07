@@ -8,6 +8,7 @@ import { clientMeetingsWork } from '../work/clientMeetings';
 import { posterPresentationWork } from '../work/posterPresentation';
 import { personasWork } from '../work/personas';
 import { woodworksWork } from '../work/woodworks';
+import { artDepartmentWork } from '../work/artDepartment';
 import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
@@ -19,7 +20,8 @@ const workContent = {
   'client-meetings': clientMeetingsWork,
   'poster-presentation': posterPresentationWork,
   'personas': personasWork,
-  'woodworks': woodworksWork
+  'woodworks': woodworksWork,
+  'art-department': artDepartmentWork
 };
 
 // Map learning outcome IDs to their section names

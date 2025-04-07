@@ -7,7 +7,7 @@ import { clientMeetingsWork } from '../components/work/clientMeetings';
 import { posterPresentationWork } from '../components/work/posterPresentation';
 import { personasWork } from '../components/work/personas';
 import { woodworksWork } from '../components/work/woodworks';
-
+import { artDepartmentWork } from '../components/work/artDepartment';
 // Map learning outcome IDs to their section names
 export const learningOutcomeSections = {
   'media-products': 'Media Products',
@@ -26,5 +26,6 @@ export const workDetails = {
   'client-meetings': clientMeetingsWork,
   'poster-presentation': posterPresentationWork,
   'personas': personasWork,
-  'woodworks': woodworksWork
+  'woodworks': woodworksWork,
+  'art-department': artDepartmentWork,
 }; 
