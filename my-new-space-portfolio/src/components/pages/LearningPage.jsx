@@ -66,6 +66,12 @@ const workItems = [
     title: "Poster Presentation",
     image: placeholder1,
     section: 8
+  },
+  {
+    id: 'art-department',
+    title: "Art Department",
+    image: placeholder2,
+    section: 9
   }
 ];
 
