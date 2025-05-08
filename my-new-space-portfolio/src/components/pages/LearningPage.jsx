@@ -81,13 +81,21 @@ function LearningPage({ onNavigate, workPath }) {
       const work = workItems.find(item => item.id === workPath);
       if (work) {
         setSelectedWork(work);
-        const sectionIndex = sections.findIndex(section => section.id === work.section);
-        if (sectionIndex !== -1) {
-          setCurrentSection(sectionIndex);
-        }
+        setCurrentSection(work.section);
       }
     }
   }, [workPath]);
+
+  useEffect(() => {
+    if (selectedWork) {
+      setTimeout(() => {
+        const workDetail = document.querySelector('.work-detail');
+        if (workDetail) {
+          workDetail.classList.add('visible');
+        }
+      }, 50);
+    }
+  }, [selectedWork]);
 
   const scrollToSection = (sectionIndex) => {
     if (!gridRef.current || isScrolling.current) return;
