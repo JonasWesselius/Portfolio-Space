@@ -488,3 +488,38 @@
     opacity: 0.8;
   }
 }
+
+@media (max-width: 1400px) {
+  .moon,
+  .nav-arrow {
+    display: none !important;
+  }
+  .content-container {
+    align-items: flex-start;   /* Align content to the top */
+    justify-content: flex-start; /* Optional: align to the left/top */
+    padding-top: 2rem;        /* Add some space from the very top if needed */
+    min-height: 100vh;        /* Ensure it fills the viewport */
+  }
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 0;            /* Remove extra margin if present */
+  }
+  .intro-text {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* If you want the intro text even closer to the top, reduce or remove margin-top on .profile-container: */
+@media (max-width: 1400px) {
+  .profile-container {
+    margin-top: 0rem; /* Or even 0 if you want it at the very top */
+  }
+}

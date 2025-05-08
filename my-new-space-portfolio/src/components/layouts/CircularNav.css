@@ -212,4 +212,10 @@
   .section-title.active {
     font-size: 0.9rem;
   }
+}
+
+@media (max-width: 1400px) {
+  .circular-nav {
+    display: none !important;
+  }
 } 
