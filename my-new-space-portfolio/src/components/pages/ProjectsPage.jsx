@@ -121,18 +121,7 @@ const sectionContent = {
 
 function ProjectsPage({ onNavigate }) {
   const handleMoonClick = () => {
-    // Add fade-out class to the page content
-    const pageContent = document.querySelector('.page-content');
-    if (pageContent) {
-      pageContent.classList.add('fade-out');
-    }
-    
-    setTimeout(() => {
-      if (pageContent) {
-        pageContent.classList.remove('fade-out');
-      }
-      onNavigate('home');
-    }, 400);
+    onNavigate('home');
   };
 
   return (

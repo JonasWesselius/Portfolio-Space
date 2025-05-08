@@ -160,10 +160,10 @@ function LearningPage({ onNavigate, workPath }) {
 
   const handleMoonClick = () => {
     // Only add fade-out class to the page content
-    const pageContent = document.querySelector('.page-content');
-    if (pageContent) {
-      pageContent.classList.add('fade-out');
-    }
+    // const pageContent = document.querySelector('.page-content');
+    // if (pageContent) {
+    //   pageContent.classList.add('fade-out');
+    // }
     
     // Add moon animation
     const moon = document.querySelector('.learning-page .moon');

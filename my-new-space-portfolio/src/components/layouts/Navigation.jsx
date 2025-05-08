@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 function Navigation({ currentPage, onNavigate }) {
   const handleNavClick = (direction) => {
     // Add fade-out class to the current page content
-    const pageContent = document.querySelector('.page-content');
-    if (pageContent) {
-      pageContent.classList.add('fade-out');
-    }
+    // const pageContent = document.querySelector('.page-content');
+    // if (pageContent) {
+    //   pageContent.classList.add('fade-out');
+    // }
 
     // Wait for fade animation before changing page
     setTimeout(() => {
