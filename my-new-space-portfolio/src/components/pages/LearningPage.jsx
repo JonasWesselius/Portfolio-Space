@@ -46,7 +46,7 @@ const workItems = [
     id: 'personas',
     title: "User Personas",
     image: placeholder2,
-    section: 9
+    section: 5
   },
   {
     id: 'client-meetings',
@@ -72,6 +72,18 @@ const workItems = [
     title: "Art Department",
     image: placeholder2,
     section: 9
+  },
+  {
+    id: 'mockup-project',
+    title: "Mockup Project",
+    image: placeholder1,
+    section: 10 
+  },
+  {
+    id: 'career-day',
+    title: "Career Day",
+    image: placeholder2,
+    section: 11
   }
 ];
 

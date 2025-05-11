@@ -9,6 +9,8 @@ import { posterPresentationWork } from '../work/posterPresentation';
 import { personasWork } from '../work/personas';
 import { woodworksWork } from '../work/woodworks';
 import { artDepartmentWork } from '../work/artDepartment';
+import { mockupProject } from '../work/mockup';
+import { careerDay } from '../work/career';
 import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
@@ -21,7 +23,9 @@ const workContent = {
   'poster-presentation': posterPresentationWork,
   'personas': personasWork,
   'woodworks': woodworksWork,
-  'art-department': artDepartmentWork
+  'art-department': artDepartmentWork,
+  'mockup-project': mockupProject,
+  'career-day': careerDay,
 };
 
 // Map learning outcome IDs to their section names
@@ -157,7 +161,12 @@ function WorkDetail({ title, onBack, className, workId }) {
       text: 'View Research PDF',
       url: '/src/assets/work/research/research-document.pdf',
       icon: '📄'
-    }
+    },
+    'mockup-project': {
+      text: 'View Figma Design',
+      url: 'https://www.figma.com/design/7Dh8gsyOB6TyrTf6xv3fWP/StepUp-Wireframes?node-id=0-1&t=XpN5c1axcYY7ivw3-1',
+      icon: '🎨'
+    },
   };
 
   return (

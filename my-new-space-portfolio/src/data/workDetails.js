@@ -8,6 +8,8 @@ import { posterPresentationWork } from '../components/work/posterPresentation';
 import { personasWork } from '../components/work/personas';
 import { woodworksWork } from '../components/work/woodworks';
 import { artDepartmentWork } from '../components/work/artDepartment';
+import { mockupProject } from '../components/work/mockup';
+import { careerDay } from '../components/work/career';
 // Map learning outcome IDs to their section names
 export const learningOutcomeSections = {
   'media-products': 'Media Products',
@@ -28,4 +30,6 @@ export const workDetails = {
   'personas': personasWork,
   'woodworks': woodworksWork,
   'art-department': artDepartmentWork,
+  'mockup-project': mockupProject,
+  'career-day': careerDay,
 }; 
