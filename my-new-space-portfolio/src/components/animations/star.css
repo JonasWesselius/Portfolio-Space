@@ -1,0 +1,32 @@
+/* Starry Background Animation */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  bottom: 0;
+  background: rgb(180, 175, 175);
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px #cfcfcf, 0 0 16px 4px #fff2;
+  animation-name: starUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes starUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-110vh);
+  }
+} 

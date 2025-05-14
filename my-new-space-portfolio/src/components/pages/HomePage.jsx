@@ -121,7 +121,7 @@ function HomePage({ onNavigate, currentPage }) {
                     <circle
                       cx={skill.x}
                       cy={skill.y}
-                      r="1.5"
+                      r="2.5"
                       className="constellation-star"
                     />
                     <text

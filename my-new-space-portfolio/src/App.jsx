@@ -4,6 +4,7 @@ import HomePage from './components/pages/HomePage'
 import ProjectsPage from './components/pages/ProjectsPage'
 import LearningPage from './components/pages/LearningPage'
 import Navigation from './components/layouts/Navigation'
+import StarryBackground from './components/animations/StarryBackground'
 import './App.css'
 
 // Wrapper component to handle page transitions
@@ -46,6 +47,7 @@ function PageWrapper() {
 
   return (
     <div className="app-container">
+      <StarryBackground />
       <div className={`page-wrapper ${isTransitioning ? 'transitioning' : ''}`} data-page={currentPage}>
         <ProjectsPage onNavigate={handlePageChange} />
         <HomePage onNavigate={handlePageChange} currentPage={currentPage} />

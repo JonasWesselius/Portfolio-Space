@@ -210,7 +210,7 @@
 }
 
 /* Add starry background with lower opacity */
-.learning-page::before {
+/* .learning-page::before {
   content: '';
   position: fixed;
   top: 0;
@@ -233,16 +233,16 @@
   z-index: 0;
   pointer-events: none;
   animation: twinkling 8s infinite linear;
-}
+} */
 
-@keyframes twinkling {
+/* @keyframes twinkling {
   0% {
     transform: translateY(0);
   }
   100% {
     transform: translateY(-100%);
   }
-}
+} */
 
 
 .nav-item {
