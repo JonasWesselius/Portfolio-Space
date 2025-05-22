@@ -12,6 +12,7 @@ import { artDepartmentWork } from '../work/artDepartment';
 import { mockupProject } from '../work/mockup';
 import { careerDay } from '../work/career';
 import { swotAnalysisWork } from '../work/swot';
+import { projectCodingWork } from '../work/projectCoding';
 import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
@@ -28,6 +29,7 @@ const workContent = {
   'mockup-project': mockupProject,
   'career-day': careerDay,
   'swot-analysis': swotAnalysisWork,
+  'project-coding': projectCodingWork,
 };
 
 // Map learning outcome IDs to their section names

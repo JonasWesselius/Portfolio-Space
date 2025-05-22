@@ -90,6 +90,12 @@ const workItems = [
     title: "SWOT Analysis",
     image: placeholder1,
     section: 12
+  },
+  {
+    id: 'project-coding',
+    title: "Project Coding",
+    image: placeholder2,
+    section: 13
   }
 ];
 
