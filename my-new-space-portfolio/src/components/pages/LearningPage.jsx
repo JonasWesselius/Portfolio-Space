@@ -84,6 +84,12 @@ const workItems = [
     title: "Career Day",
     image: placeholder2,
     section: 11
+  },
+  {
+    id: 'swot-analysis',
+    title: "SWOT Analysis",
+    image: placeholder1,
+    section: 12
   }
 ];
 
