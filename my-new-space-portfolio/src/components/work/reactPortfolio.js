@@ -1,13 +1,14 @@
 export const reactPortfolioWork = {
   title: "React Portfolio Website",
-  description: "A personal portfolio website built with React, showcasing my skills and projects in an interactive and visually appealing way. This project demonstrates my ability to create modern web applications with responsive design.",
+  description: "A React-built personal portfolio website that interactively and aesthetically displays my abilities and projects. My ability to develop modern, responsive web applications is demonstrated by this project. I now host images and other data externally using Vercel Blob Storage to effectively handle massive media assets. This ensures quick load times and keeps my repository small.",
   learningPoints: [
     "React component architecture",
     "State management with hooks",
     "CSS animations and transitions",
     "Responsive design principles",
     "Route management with React Router",
-    "Performance optimization techniques"
+    "Performance optimization techniques",
+    "External asset management with Vercel Blob Storage"
   ],
   technologies: [
     "React",
@@ -15,7 +16,8 @@ export const reactPortfolioWork = {
     "CSS",
     "HTML",
     "React Router",
-    "Git"
+    "Git",
+    "Vercel Blob Storage"
   ],
   learningOutcome: "Thanks to this work, I'm developing a deeper understanding of React's component-based architecture and state management. I'm learning how to create smooth animations and transitions while maintaining performance, and gaining experience with responsive design principles to ensure the portfolio looks great on all devices.",
   learningOutcomes: [
@@ -45,7 +47,7 @@ export const reactPortfolioWork = {
       explanation: "Learning from past experiences of poor planning, I deliberately started early this semester. I spent significant time on coding to ensure quality, showing commitment to improvement. When receiving feedback about busy animations and mobile considerations, I acknowledged these areas for improvement and took action to address them."
     }
   ],
-  process: "I started this semester with the task of creating a portfolio. This portfolio is meant to show off all the work I've done this semester and associate it with the correct learning outcomes. On top of that, I also have to start my internship next semester, so I need to have a portfolio to apply for internships as well. This is why I started as soon as possible on this task, since compared with experience from past semesters and having to rush it all at the end due to poor planning, I figured it would be nice to have my portfolio finished as soon as possible, and I can just add work into it as I go along the semester. I started with designing this portfolio in Figma. I always had static pages for my portfolio, so my goal here was to really make it dynamic. Make it interesting. After getting inspiration on Dribbble.com, I started creating wireframes that later, with the help of some feedback from teachers, transitioned into a mockup. The feedback on the wireframes was quite minimal, so instead of creating a new wireframe with the feedback, I decided to integrate the feedback into the next step instead. That being the mockup. When I showed off my mockup and shared my thoughts behind it, the feedback was really positive, and I almost instantly got the green light to start coding, so that's what I did next. I spent a long time coding this website because I wanted it to work properly and be something I can be proud of. After a month, I had mostly finished the website and asked for some feedback from a recruiter I know. He said he liked it, but it was very busy with all the fancy animations, so he suggested I tone those down. Also, he reminded me that most recruiters will be looking at this on mobile, so I need to keep that in mind as well. My teacher shared his thoughts and basically told me the same. I then changed the animations on home to be less distracting, and I'm still working on the mobile rendition of the website, but I've decided to focus on filling it with work first in regard to the portfolio review coming up. ",
+  process: "I started this semester with the task of creating a portfolio. This portfolio is meant to show off all the work I've done this semester and associate it with the correct learning outcomes. On top of that, I also have to start my internship next semester, so I need to have a portfolio to apply for internships as well. This is why I started as soon as possible on this task, since compared with experience from past semesters and having to rush it all at the end due to poor planning, I figured it would be nice to have my portfolio finished as soon as possible, and I can just add work into it as I go along the semester. I started with designing this portfolio in Figma. I always had static pages for my portfolio, so my goal here was to really make it dynamic. Make it interesting. After getting inspiration on Dribbble.com, I started creating wireframes that later, with the help of some feedback from teachers, transitioned into a mockup. The feedback on the wireframes was quite minimal, so instead of creating a new wireframe with the feedback, I decided to integrate the feedback into the next step instead. That being the mockup. When I showed off my mockup and shared my thoughts behind it, the feedback was really positive, and I almost instantly got the green light to start coding, so that's what I did next. I spent a long time coding this website because I wanted it to work properly and be something I can be proud of. After a month, I had mostly finished the website and asked for some feedback from a recruiter I know. He said he liked it, but it was very busy with all the fancy animations, so he suggested I tone those down. Also, he reminded me that most recruiters will be looking at this on mobile, so I need to keep that in mind as well. My teacher shared his thoughts and basically told me the same. I then changed the animations on home to be less distracting, and I'm still working on the mobile rendition of the website, but I've decided to focus on filling it with work first in regard to the portfolio review coming up. Initially, I stored all images and assets directly in the project repository. However, as the number and size of media files grew, this approach became unsustainable and slowed down development. To solve this, I migrated my images and large assets to Vercel Blob Storage. Now, I upload content to Vercel Blob Storage and use the generated URLs in my project. This keeps the repository size small, improves deployment speed, and ensures that media loads quickly for users.",
   images: [
     // Iteration 1 - Wireframes
     {

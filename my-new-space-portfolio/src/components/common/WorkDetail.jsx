@@ -52,7 +52,8 @@ function WorkDetail({ title, onBack, className, workId }) {
     learningOutcome: "Learning outcome description...",
     learningOutcomes: [],
     process: "Process description...",
-    images: []
+    images: [],
+    userTesting: null 
   };
   
   // Initialize currentImageIndices for each group
@@ -212,11 +213,47 @@ function WorkDetail({ title, onBack, className, workId }) {
               </div>
             ))}
           </div>
-          
-          <h3>Process</h3>
-          <div className="process-section">
-            <p>{content.process}</p>
-          </div>
+            <h3>Process</h3>
+            <div className="process-section">
+              <p>{content.process}</p>
+            </div>
+
+            {/* User Testing Section */}
+            {content.userTesting && (
+              <>
+                <h3>User Testing</h3>
+                <div className="user-testing-section">
+                  {content.userTesting.video && (
+                    <div className="user-testing-video" style={{ marginBottom: '1.5rem' }}>
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${content.userTesting.video.split('v=')[1]?.split('&')[0]}`}
+                        title="User Test Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{ maxWidth: '100%', borderRadius: '12px' }}
+                      ></iframe>
+                    </div>
+                  )}
+                  <h4>Tasks</h4>
+                  <ul>
+                    {content.userTesting.tasks.map((task, idx) => (
+                      <li key={idx}>{task}</li>
+                    ))}
+                  </ul>
+                  <h4>Results</h4>
+                  <p>{content.userTesting.results}</p>
+                  <h4>Feedback</h4>
+                  <ul>
+                    {content.userTesting.feedback.map((fb, idx) => (
+                      <li key={idx}>{fb}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
           
           {/* Add Interview Audio Players if available */}
           {content.interviews && content.interviews.length > 0 && (
