@@ -198,9 +198,31 @@ function WorkDetail({ title, onBack, className, workId }) {
         <div className="work-description">
           <p>{content.description}</p>
           
-          <h3>Learning Outcome</h3>
-          <p className="learning-outcome">{content.learningOutcome}</p>
-          
+          {/* Process section moved up and integrated with images */}
+          <h3>Process & Iterations</h3>
+          <div className="process-section">
+            <p>{content.process}</p>
+            
+            {/* Show images grouped by iteration */}
+            {content.images && content.images.length > 0 && (
+              <div className="process-images">
+                {Object.keys(groupedImages).map(group => {
+                  // Convert folder names to display titles
+                  const displayTitles = {
+                    'iteration1': 'Initial Iteration',
+                    'iteration2': 'Second Iteration',
+                    'iteration3': 'Third Iteration',
+                    'final': 'Final Version',
+                    'wireframes': 'Wireframes',
+                    'mockUps': 'Design Mockups'
+                  };
+                  return renderImageCarousel(group, displayTitles[group] || group);
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* Learning Outcomes section */}
           <h3>Learning Outcomes</h3>
           <div className="learning-outcomes-container">
             {content.learningOutcomes && content.learningOutcomes.map((outcome, index) => (
@@ -213,48 +235,59 @@ function WorkDetail({ title, onBack, className, workId }) {
               </div>
             ))}
           </div>
-            <h3>Process</h3>
-            <div className="process-section">
-              <p>{content.process}</p>
-            </div>
 
-            {/* User Testing Section */}
-            {content.userTesting && (
-              <>
-                <h3>User Testing</h3>
-                <div className="user-testing-section">
-                  {content.userTesting.video && (
-                    <div className="user-testing-video" style={{ marginBottom: '1.5rem' }}>
-                      <iframe
-                        width="560"
-                        height="315"
-                        src={`https://www.youtube.com/embed/${content.userTesting.video.split('v=')[1]?.split('&')[0]}`}
-                        title="User Test Video"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        style={{ maxWidth: '100%', borderRadius: '12px' }}
-                      ></iframe>
-                    </div>
-                  )}
-                  <h4>Tasks</h4>
-                  <ul>
-                    {content.userTesting.tasks.map((task, idx) => (
-                      <li key={idx}>{task}</li>
-                    ))}
-                  </ul>
-                  <h4>Results</h4>
-                  <p>{content.userTesting.results}</p>
-                  <h4>Feedback</h4>
-                  <ul>
-                    {content.userTesting.feedback.map((fb, idx) => (
-                      <li key={idx}>{fb}</li>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            )}
-          
+          {/* Technologies and Learning Points moved to the end */}
+          <h3>Technologies Used</h3>
+          <ul>
+            {content.technologies.map((tech, index) => (
+              <li key={index}>{tech}</li>
+            ))}
+          </ul>
+
+          <h3>Key Learning Points</h3>
+          <ul>
+            {content.learningPoints.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
+
+          {/* User Testing section if available */}
+          {content.userTesting && (
+            <>
+              <h3>User Testing</h3>
+              <div className="user-testing-section">
+                {content.userTesting.video && (
+                  <div className="user-testing-video" style={{ marginBottom: '1.5rem' }}>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${content.userTesting.video.split('v=')[1]?.split('&')[0]}`}
+                      title="User Test Video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ maxWidth: '100%', borderRadius: '12px' }}
+                    ></iframe>
+                  </div>
+                )}
+                <h4>Tasks</h4>
+                <ul>
+                  {content.userTesting.tasks.map((task, idx) => (
+                    <li key={idx}>{task}</li>
+                  ))}
+                </ul>
+                <h4>Results</h4>
+                <p>{content.userTesting.results}</p>
+                <h4>Feedback</h4>
+                <ul>
+                  {content.userTesting.feedback.map((fb, idx) => (
+                    <li key={idx}>{fb}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
+
           {/* Add Interview Audio Players if available */}
           {content.interviews && content.interviews.length > 0 && (
             <>
@@ -296,37 +329,6 @@ function WorkDetail({ title, onBack, className, workId }) {
                   </div>
                 ))}
               </div>
-            </>
-          )}
-          
-          <h3>Key Learning Points</h3>
-          <ul>
-            {content.learningPoints.map((point, index) => (
-              <li key={index}>{point}</li>
-            ))}
-          </ul>
-          
-          <h3>Technologies Used</h3>
-          <ul>
-            {content.technologies.map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ul>
-          
-          {content.images && content.images.length > 0 && (
-            <>
-              <h3>Work Images</h3>
-              {Object.keys(groupedImages).map(group => {
-                // Convert folder names to display titles
-                const displayTitles = {
-                  'iteration1': 'Iteration 1',
-                  'iteration2': 'Iteration 2',
-                  'final': 'Final Version',
-                  'wireframes': 'Wireframes',
-                  'mockUps': 'Design Mockups'
-                };
-                return renderImageCarousel(group, displayTitles[group] || group);
-              })}
             </>
           )}
         </div>

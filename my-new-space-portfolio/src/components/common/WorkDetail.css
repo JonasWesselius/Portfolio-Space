@@ -162,7 +162,19 @@
 
 .process-section p {
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 2rem 0;
+}
+
+.process-images {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.process-images h4 {
+  color: var(--cosmic-blue);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .work-description ul {
@@ -308,20 +320,29 @@
 
 /* Iteration Sections */
 .iteration-section {
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .iteration-section:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .iteration-section h4 {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
   color: var(--cosmic-blue);
-  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iteration-section h4::before {
+  content: "🔄";
+  font-size: 1.4rem;
 }
 
 /* PDF Link Styling */
