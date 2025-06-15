@@ -62,10 +62,10 @@
 
 .work-grid {
   position: absolute;
-  top: 100px;
-  right: 4rem;
+  top: 20%;
+  right: 2rem;
   bottom: 6rem;
-  width: 700px;
+  width: 70%;
   overflow-y: auto;
   padding-right: 1rem;
   padding-bottom: 2rem;
@@ -147,9 +147,9 @@
   }
 
   .work-grid {
-    width: 500px; /* Reduced from 600px */
+    width: 600px;
     right: 2rem;
-    bottom: 5rem; /* Adjusted for mobile */
+    bottom: 5rem;
   }
 }
 

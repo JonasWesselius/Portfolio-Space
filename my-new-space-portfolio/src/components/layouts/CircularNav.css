@@ -168,6 +168,34 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.section-title.filter-active {
+  color: var(--cosmic-blue);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(103, 103, 233, 0.5);
+}
+
+.filter-indicator {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--cosmic-blue);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
 .circular-nav.hidden,
 .page-inactive .circular-nav {
   opacity: 0;

@@ -8,8 +8,46 @@ import CircularNav from '../layouts/CircularNav';
 import WorkItem from '../common/WorkItem';
 import WorkDetail from '../common/WorkDetail';
 import './LearningPage.css';
+import { reactPortfolioWork } from '../work/reactPortfolio';
+import { brandguideStudioWork } from '../work/brandguideStudio';
+import { studioLogosWork } from '../work/studioLogos';
+import { motivationWork } from '../work/motivation';
+import { clientMeetingsWork } from '../work/clientMeetings';
+import { posterPresentationWork } from '../work/posterPresentation';
+import { personasWork } from '../work/personas';
+import { woodworksWork } from '../work/woodworks';
+import { artDepartmentWork } from '../work/artDepartment';
+import { mockupProject } from '../work/mockup';
+import { careerDay } from '../work/career';
+import { swotAnalysisWork } from '../work/swot';
+import { projectCodingWork } from '../work/projectCoding';
 
-const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal", ];
+const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal"];
+
+// Map section names to their IDs
+const sectionToId = {
+  "Media Products": "media-products",
+  "Development": "process-documentation",
+  "Iterative Design": "iterations",
+  "Professionalism": "professional",
+  "Personal": "personal"
+};
+
+const workContent = {
+  'react-portfolio': reactPortfolioWork,
+  'brandguide-studio': brandguideStudioWork,
+  'studio-logos': studioLogosWork,
+  'motivation': motivationWork,
+  'client-meetings': clientMeetingsWork,
+  'poster-presentation': posterPresentationWork,
+  'personas': personasWork,
+  'woodworks': woodworksWork,
+  'art-department': artDepartmentWork,
+  'mockup-project': mockupProject,
+  'career-day': careerDay,
+  'swot-analysis': swotAnalysisWork,
+  'project-coding': projectCodingWork,
+};
 
 const workItems = [
   {
@@ -54,7 +92,6 @@ const workItems = [
     image: placeholder1,
     section: 6
   },
-
   {
     id: 'motivation',
     title: "Motivation",
@@ -102,8 +139,8 @@ const workItems = [
 function LearningPage({ onNavigate, workPath }) {
   const [currentSection, setCurrentSection] = useState(0);
   const [selectedWork, setSelectedWork] = useState(null);
+  const [activeFilter, setActiveFilter] = useState(null);
   const gridRef = useRef(null);
-  const isScrolling = useRef(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -127,69 +164,13 @@ function LearningPage({ onNavigate, workPath }) {
     }
   }, [selectedWork]);
 
-  const scrollToSection = (sectionIndex) => {
-    if (!gridRef.current || isScrolling.current) return;
-
-    isScrolling.current = true;
-    const gridHeight = gridRef.current.clientHeight;
-    const contentHeight = gridRef.current.scrollHeight;
-    const maxScroll = contentHeight - gridHeight;
-    const sectionPosition = (sectionIndex / (sections.length - 1)) * maxScroll;
-
-    // Add moon rotation for section clicks
-    const moon = document.querySelector('.learning-page .moon');
-    if (moon) {
-      const rotationDegrees = -(sectionIndex / (sections.length - 1)) * 180;
-      moon.style.transform = `translateX(-50%) rotate(${rotationDegrees}deg)`;
-    }
-
-    gridRef.current.scrollTo({
-      top: sectionPosition,
-      behavior: 'smooth'
-    });
-
-    setCurrentSection(sectionIndex);
-    
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 500);
-  };
-
-  const handleScroll = (e) => {
-    if (!gridRef.current || isScrolling.current) return;
-
-    const gridHeight = gridRef.current.clientHeight;
-    const contentHeight = gridRef.current.scrollHeight;
-    const maxScroll = contentHeight - gridHeight;
-    const currentScroll = e.target.scrollTop;
-    
-    const sectionProgress = currentScroll / maxScroll;
-    const newSection = Math.round(sectionProgress * (sections.length - 1));
-    
-    // Add moon rotation based on scroll progress
-    const moon = document.querySelector('.learning-page .moon');
-    if (moon) {
-      const rotationDegrees = -(sectionProgress * 180); // Negative for counter-clockwise
-      moon.style.transform = `translateX(-50%) rotate(${rotationDegrees}deg)`;
-    }
-    
-    if (newSection !== currentSection && newSection >= 0 && newSection < sections.length) {
-      setCurrentSection(newSection);
-    }
-  };
-
   const handleSectionClick = (sectionIndex) => {
-    scrollToSection(sectionIndex);
+    const sectionId = sectionToId[sections[sectionIndex]];
+    setActiveFilter(activeFilter === sectionId ? null : sectionId);
+    setCurrentSection(sectionIndex);
   };
 
   const handleMoonClick = () => {
-    // Only add fade-out class to the page content
-    // const pageContent = document.querySelector('.page-content');
-    // if (pageContent) {
-    //   pageContent.classList.add('fade-out');
-    // }
-    
-    // Add moon animation
     const moon = document.querySelector('.learning-page .moon');
     if (moon) {
       moon.classList.add('sliding-left');
@@ -204,11 +185,36 @@ function LearningPage({ onNavigate, workPath }) {
     setSelectedWork(work);
     navigate(`/learning/${work.id}`);
     
-    // Add a small delay to ensure the component is mounted before adding the visible class
     setTimeout(() => {
       const workDetail = document.querySelector('.work-detail');
       if (workDetail) {
         workDetail.classList.add('visible');
+        // Reset scroll position to top
+        workDetail.scrollTop = 0;
+      }
+    }, 50);
+  };
+
+  const handleFilterLinkClick = (work, e) => {
+    e.stopPropagation(); // Prevent the work item click from firing
+    setSelectedWork(work);
+    navigate(`/learning/${work.id}`);
+    
+    setTimeout(() => {
+      const workDetail = document.querySelector('.work-detail');
+      if (workDetail) {
+        workDetail.classList.add('visible');
+        // Scroll to the specific learning outcome after a short delay
+        setTimeout(() => {
+          const outcomeElement = document.querySelector(`[data-outcome-id="${activeFilter}"]`);
+          if (outcomeElement) {
+            outcomeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            outcomeElement.classList.add('highlight-outcome');
+            setTimeout(() => {
+              outcomeElement.classList.remove('highlight-outcome');
+            }, 2000);
+          }
+        }, 100);
       }
     }, 50);
   };
@@ -225,6 +231,13 @@ function LearningPage({ onNavigate, workPath }) {
     }, 300);
   };
 
+  // Filter work items based on active filter
+  const filteredWorkItems = workItems.filter(item => {
+    if (!activeFilter) return true;
+    const workData = workContent[item.id];
+    return workData?.learningOutcomes?.some(outcome => outcome.id === activeFilter);
+  });
+
   return (
     <div className={`learning-page ${selectedWork ? 'work-detail-view' : ''}`}>
       <div className="moon-container">
@@ -239,21 +252,22 @@ function LearningPage({ onNavigate, workPath }) {
         sections={sections}
         currentSection={currentSection}
         onSectionChange={handleSectionClick}
+        activeFilter={activeFilter}
       />
       <div className="page-content">
         <h1 className="page-title">Learning Outcomes</h1>
         <div 
           className="work-grid" 
-          ref={gridRef} 
-          onScroll={handleScroll}
+          ref={gridRef}
         >
-          {workItems.map((item, index) => (
+          {filteredWorkItems.map((item) => (
             <WorkItem 
               key={item.id}
               title={item.title}
               image={item.image}
-              isReversed={index % 2 !== 0}
               onClick={() => handleWorkClick(item)}
+              onFilterClick={(e) => handleFilterLinkClick(item, e)}
+              activeFilter={activeFilter}
             />
           ))}
         </div>
@@ -262,6 +276,7 @@ function LearningPage({ onNavigate, workPath }) {
             title={selectedWork.title}
             onBack={handleBackToLearning}
             workId={selectedWork.id}
+            activeFilter={activeFilter}
           />
         )}
       </div>

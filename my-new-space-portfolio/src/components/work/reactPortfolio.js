@@ -105,6 +105,13 @@ The final phase focused on performance optimization and mobile responsiveness. I
       title: "Initial Animation Design",
       caption: "Early prototype featuring floating and shooting animations. This version was later simplified to the current star constellation design for better usability and visual clarity.",
       group: "iteration3"
+    },
+
+    {
+      url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/Portfolio/2025-06-15%2020-12-42-L7H1McLgp862U9PGp0CZvoUbDYaqD6.gif",
+      title: "Main Animation Design",
+      caption: "Star constellation design for better usability and visual clarity. This version was later updated on the learning outcomes page to use the space on screen more effectively.",
+      group: "iteration4"
     }
   ]
 }; 

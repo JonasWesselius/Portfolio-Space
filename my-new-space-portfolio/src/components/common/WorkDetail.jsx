@@ -41,7 +41,7 @@ const learningOutcomeSections = {
   'personal': 'Personal'
 };
 
-function WorkDetail({ title, onBack, className, workId }) {
+function WorkDetail({ title, onBack, className, workId, activeFilter }) {
   const [currentImageIndices, setCurrentImageIndices] = useState({});
   const [groupedImages, setGroupedImages] = useState({});
   
@@ -56,6 +56,20 @@ function WorkDetail({ title, onBack, className, workId }) {
     userTesting: null 
   };
   
+  // Scroll to the relevant learning outcome when there's an active filter
+  useEffect(() => {
+    if (activeFilter) {
+      const outcomeElement = document.querySelector(`[data-outcome-id="${activeFilter}"]`);
+      if (outcomeElement) {
+        outcomeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        outcomeElement.classList.add('highlight-outcome');
+        setTimeout(() => {
+          outcomeElement.classList.remove('highlight-outcome');
+        }, 2000);
+      }
+    }
+  }, [activeFilter]);
+
   // Initialize currentImageIndices for each group
   useEffect(() => {
     // Group images by their folder path
@@ -226,7 +240,11 @@ function WorkDetail({ title, onBack, className, workId }) {
           <h3>Learning Outcomes</h3>
           <div className="learning-outcomes-container">
             {content.learningOutcomes && content.learningOutcomes.map((outcome, index) => (
-              <div key={index} className="learning-outcome-item">
+              <div 
+                key={index} 
+                className="learning-outcome-item"
+                data-outcome-id={outcome.id}
+              >
                 <div className="learning-outcome-header">
                   <span className="learning-outcome-section">{learningOutcomeSections[outcome.id] || outcome.id}</span>
                 </div>
@@ -341,7 +359,8 @@ WorkDetail.propTypes = {
   title: PropTypes.string.isRequired,
   onBack: PropTypes.func.isRequired,
   className: PropTypes.string,
-  workId: PropTypes.string.isRequired
+  workId: PropTypes.string.isRequired,
+  activeFilter: PropTypes.string
 };
 
 export default WorkDetail; 

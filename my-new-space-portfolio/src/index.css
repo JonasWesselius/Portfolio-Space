@@ -95,6 +95,7 @@ button:focus-visible {
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
   letter-spacing: 2px;
   background: linear-gradient(45deg, var(--star-white), var(--cosmic-blue));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
