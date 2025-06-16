@@ -19,24 +19,27 @@ const sectionContent = {
             <li>Step-by-step integration guide for the Netherlands</li>
             <li>Cultural orientation resources</li>
             <li>Professional development tracking</li>
+            <li>Refugee and Employer based database for accounts</li>
           </ul>
         </div>
       </>
     )
   },
   1: {
-    title: "Research Phase",
+    title: "Research & User Testing",
     content: (
       <>
-        <h2>User Research</h2>
-        <p>We&apos;ve conducted extensive research to understand the needs and challenges of both refugees and employers in the Dutch job market.</p>
+        <h2>User Research & Testing</h2>
+        <p>We conducted extensive research through interviews with refugees and user testing sessions to validate our concept and design decisions.</p>
         <div className="research-methods">
           <h3>Research Methods</h3>
           <ul>
-            <li>On-site visits to asylum centers</li>
-            <li>In-depth interviews with refugees</li>
-            <li>Employer focus groups</li>
-            <li>Market analysis of existing solutions</li>
+          <li>On-site visits to asylum centers</li>  
+          <li>Market analysis of existing solutions</li>
+          <li>In-depth interviews with 7 refugees from various backgrounds</li>
+            <li>User testing sessions with AI and refugee students</li>
+            <li>Feedback collection from client and teachers</li>
+            <li>Peer review sessions</li>
             <li>Integration process mapping</li>
             <li>Language barrier assessment</li>
           </ul>
@@ -56,31 +59,31 @@ const sectionContent = {
     )
   },
   2: {
-    title: "Concept Development",
+    title: "Design & Development",
     content: (
       <>
-        <h2>Solution Design</h2>
-        <p>Based on our research findings, we&apos;ve developed a comprehensive concept that addresses the key challenges identified in our user research.</p>
-        <div className="concept-details">
-          <h3>Core Concept Elements</h3>
+        <h2>Design Process & Implementation</h2>
+        <p>Our design process followed an iterative approach, starting with wireframes and evolving through multiple iterations based on user feedback.</p>
+        <div className="design-process">
+          <h3>Design Phases</h3>
           <ul>
-            <li>Intuitive multilingual interface</li>
-            <li>Personalized integration roadmap</li>
-            <li>Skill assessment and matching system</li>
-            <li>Cultural competency training modules</li>
-            <li>Progress tracking and milestone system</li>
-            <li>Employer-employee matching algorithm</li>
+            <li>Initial wireframes and concept validation</li>
+            <li>High-fidelity mockups with user-centered design principles</li>
+            <li>Interactive prototypes for user testing</li>
+            <li>Iterative improvements based on feedback</li>
+            <li>Final design system and component library</li>
+            <li>PWA development with React</li>
           </ul>
         </div>
-        <div className="user-journey">
-          <h3>User Journey Highlights</h3>
+        <div className="development-highlights">
+          <h3>Development Highlights</h3>
           <ul>
-            <li>Initial assessment of skills and language level</li>
-            <li>Personalized learning path creation</li>
-            <li>Interactive cultural orientation</li>
-            <li>Resume building with translation support</li>
-            <li>Job matching and application process</li>
-            <li>Integration progress monitoring</li>
+            <li>Progressive Web App (PWA) architecture</li>
+            <li>Responsive design for mobile-first approach</li>
+            <li>Multilingual support implementation</li>
+            <li>Interactive CV builder development</li>
+            <li>Job matching algorithm integration</li>
+            <li>User progress tracking system</li>
           </ul>
         </div>
       </>
@@ -90,28 +93,27 @@ const sectionContent = {
     title: "Current Status",
     content: (
       <>
-        <h2>Project Phase</h2>
-        <p>We&apos;re currently in the concepting phase, preparing to present our research findings and proposed solution through a poster presentation next week.</p>
+        <h2>Project Completion</h2>
+        <p>The project is now in its final stages, with all major features implemented and only minor refinements remaining before the stakeholder presentation.</p>
         <div className="current-focus">
-          <h3>Current Activities</h3>
+          <h3>Completed Milestones</h3>
           <ul>
-            <li>Finalizing research documentation</li>
-            <li>Creating visual presentation materials</li>
-            <li>Refining the concept based on feedback</li>
-            <li>Preparing stakeholder presentation</li>
-            <li>Documenting user research insights</li>
-            <li>Developing concept validation plan</li>
+            <li>Comprehensive user research and persona development</li>
+            <li>Poster presentation of research findings</li>
+            <li>Wireframe and mockup iterations</li>
+            <li>User testing and feedback incorporation</li>
+            <li>PWA development and feature implementation</li>
+            <li>Multilingual support and responsive design</li>
+            <li>Database integration for refugee and employer accounts</li>
           </ul>
         </div>
         <div className="next-steps">
-          <h3>Next Steps</h3>
+          <h3>Final Steps</h3>
           <ul>
-            <li>Poster presentation to stakeholders</li>
-            <li>Gathering feedback on the concept</li>
-            <li>Planning prototype development</li>
-            <li>Defining technical requirements</li>
-            <li>Creating development roadmap</li>
-            <li>Setting up project timeline</li>
+            <li>Resolve remaining technical issues</li>
+            <li>Final performance optimization</li>
+            <li>Prepare stakeholder presentation for Wednesday</li>
+            <li>Documentation finalization</li>
           </ul>
         </div>
       </>

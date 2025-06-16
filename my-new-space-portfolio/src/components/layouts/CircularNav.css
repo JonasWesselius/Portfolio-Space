@@ -85,7 +85,7 @@
   left: 150px;
   top: 0;
   width: 200px;
-  height: 75%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,12 +94,18 @@
   pointer-events: auto;
 }
 
+.section-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .section-title {
   position: absolute;
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 1rem 1.5rem;
@@ -116,33 +122,30 @@
   pointer-events: auto;
 }
 
-
-.section-title:nth-child(1) {
+/* Position each section with curved indentation */
+.section-container:nth-child(1) {
   top: 0;
-  transform: translateY(0);
+  margin-left: 0;
 }
 
-.section-title:nth-child(2) {
+.section-container:nth-child(2) {
   top: 20%;
-  transform: translateY(0);
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
-.section-title:nth-child(3) {
+.section-container:nth-child(3) {
   top: 40%;
-  transform: translateY(0);
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
-.section-title:nth-child(4) {
+.section-container:nth-child(4) {
   top: 60%;
-  transform: translateY(0);
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
-.section-title:nth-child(5) {
+.section-container:nth-child(5) {
   top: 80%;
-  transform: translateY(0);
+  margin-left: 0;
 }
 
 .section-title:focus {
@@ -160,7 +163,7 @@
 .section-title.active {
   color: rgba(255, 255, 255, 1);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
@@ -168,11 +171,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.section-title.filter-active {
-  color: var(--cosmic-blue);
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(103, 103, 233, 0.5);
-}
 
 .filter-indicator {
   display: inline-block;
@@ -245,5 +243,50 @@
 @media (max-width: 1400px) {
   .circular-nav {
     display: none !important;
+  }
+}
+
+.section-tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Adjust tooltip position based on section */
+.section-container:nth-child(1) .section-tooltip,
+.section-container:nth-child(2) .section-tooltip {
+  transform: translateY(-50%) rotate(60deg);
+}
+
+.section-container:nth-child(3) .section-tooltip {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.section-container:nth-child(4) .section-tooltip,
+.section-container:nth-child(5) .section-tooltip {
+  transform: translateY(-50%) rotate(-60deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
   }
 } 

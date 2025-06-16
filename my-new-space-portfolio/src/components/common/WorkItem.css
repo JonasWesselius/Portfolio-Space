@@ -27,6 +27,7 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-left: 1rem;
 }
 
 .work-content h3 {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './WorkItem.css';
 
-function WorkItem({ title, image, onClick, activeFilter, onFilterClick }) {
+function WorkItem({ title, image, onClick, activeFilter, onFilterClick, filterButtonText }) {
   return (
     <div className="work-item" onClick={onClick}>
       <div className="work-content">
@@ -9,9 +9,7 @@ function WorkItem({ title, image, onClick, activeFilter, onFilterClick }) {
           <h3>{title}</h3>
           {activeFilter && (
             <div className="filter-link" onClick={onFilterClick}>
-              <span>View in {activeFilter.split('-').map(word => 
-                word.charAt(0).toUpperCase() + word.slice(1)
-              ).join(' ')}</span>
+              <span>{filterButtonText[activeFilter]}</span>
             </div>
           )}
         </div>
@@ -26,7 +24,8 @@ WorkItem.propTypes = {
   image: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   activeFilter: PropTypes.string,
-  onFilterClick: PropTypes.func
+  onFilterClick: PropTypes.func,
+  filterButtonText: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default WorkItem; 

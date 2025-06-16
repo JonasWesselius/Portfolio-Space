@@ -21,16 +21,41 @@ import { mockupProject } from '../work/mockup';
 import { careerDay } from '../work/career';
 import { swotAnalysisWork } from '../work/swot';
 import { projectCodingWork } from '../work/projectCoding';
+import { internshipWork } from '../work/iternship';
 
-const sections = ["Media Products", "Development", "Iterative Design", "Professionalism", "Personal"];
+const sections = [
+  "Media Products & Design",
+  "Process & Documentation",
+  "Iterative Development",
+  "Professional Standards",
+  "Personal Growth"
+];
 
 // Map section names to their IDs
 const sectionToId = {
-  "Media Products": "media-products",
-  "Development": "process-documentation",
-  "Iterative Design": "iterations",
-  "Professionalism": "professional",
-  "Personal": "personal"
+  "Media Products & Design": "media-products",
+  "Process & Documentation": "process-documentation",
+  "Iterative Development": "iterations",
+  "Professional Standards": "professional",
+  "Personal Growth": "personal"
+};
+
+// Add tooltips for each section
+const sectionTooltips = {
+  "Media Products & Design": "Creating engaging concepts and interactive media products using user-centered design principles, visual design techniques, and emerging technologies.",
+  "Process & Documentation": "Documenting your process, using version control, and communicating recommendations in both personal and team contexts.",
+  "Iterative Development": "Presenting successive iterations of your creative process and explaining the connections between them.",
+  "Professional Standards": "Applying methodological approaches to formulate goals, involve stakeholders, conduct research, and make decisions while considering ethical, intercultural, and sustainable factors.",
+  "Personal Growth": "Understanding your strengths and areas for improvement in ICT and personal development, taking actions aligned with your core values."
+};
+
+// Add filter button text for each section
+const filterButtonText = {
+  "media-products": "View in Media Products & Design",
+  "process-documentation": "View in Process & Documentation",
+  "iterations": "View in Iterative Development",
+  "professional": "View in Professional Standards",
+  "personal": "View in Personal Growth"
 };
 
 const workContent = {
@@ -47,6 +72,7 @@ const workContent = {
   'career-day': careerDay,
   'swot-analysis': swotAnalysisWork,
   'project-coding': projectCodingWork,
+  'internship': internshipWork,
 };
 
 const workItems = [
@@ -133,6 +159,12 @@ const workItems = [
     title: "Project Coding",
     image: placeholder2,
     section: 13
+  },
+  {
+    id: 'internship',
+    title: "Internship Search",
+    image: placeholder1,
+    section: 14
   }
 ];
 
@@ -155,12 +187,15 @@ function LearningPage({ onNavigate, workPath }) {
 
   useEffect(() => {
     if (selectedWork) {
+      document.body.classList.add('work-detail-view');
       setTimeout(() => {
         const workDetail = document.querySelector('.work-detail');
         if (workDetail) {
           workDetail.classList.add('visible');
         }
       }, 50);
+    } else {
+      document.body.classList.remove('work-detail-view');
     }
   }, [selectedWork]);
 
@@ -253,6 +288,7 @@ function LearningPage({ onNavigate, workPath }) {
         currentSection={currentSection}
         onSectionChange={handleSectionClick}
         activeFilter={activeFilter}
+        sectionTooltips={sectionTooltips}
       />
       <div className="page-content">
         <h1 className="page-title">Learning Outcomes</h1>
@@ -268,6 +304,7 @@ function LearningPage({ onNavigate, workPath }) {
               onClick={() => handleWorkClick(item)}
               onFilterClick={(e) => handleFilterLinkClick(item, e)}
               activeFilter={activeFilter}
+              filterButtonText={filterButtonText}
             />
           ))}
         </div>

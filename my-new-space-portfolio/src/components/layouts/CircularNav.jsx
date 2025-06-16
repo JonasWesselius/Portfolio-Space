@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './CircularNav.css';
 
-function CircularNav({ sections, currentSection, onSectionChange, activeFilter }) {
+function CircularNav({ sections, currentSection, onSectionChange, activeFilter, sectionTooltips }) {
   const [activeSection, setActiveSection] = useState(currentSection);
+  const [hoveredSection, setHoveredSection] = useState(null);
 
   useEffect(() => {
     setActiveSection(currentSection);
@@ -28,17 +29,25 @@ function CircularNav({ sections, currentSection, onSectionChange, activeFilter }
           const sectionId = section.toLowerCase().replace(/\s+/g, '-');
           const isActive = activeFilter === sectionId;
           return (
-            <button
-              key={section}
-              className={`section-title ${activeSection === index ? 'active' : ''} ${isActive ? 'filter-active' : ''}`}
-              onClick={() => handleSectionClick(index)}
-              style={{
-                top: `${(index * 100) / (sections.length - 1)}%`
-              }}
+            <div 
+              key={section} 
+              className="section-container"
             >
-              {section}
-              {isActive && <span className="filter-indicator">●</span>}
-            </button>
+              <button
+                className={`section-title ${activeSection === index ? 'active' : ''} ${isActive ? 'filter-active' : ''}`}
+                onClick={() => handleSectionClick(index)}
+                onMouseEnter={() => setHoveredSection(section)}
+                onMouseLeave={() => setHoveredSection(null)}
+              >
+                {section}
+                {isActive && <span className="filter-indicator">●</span>}
+              </button>
+              {hoveredSection === section && (
+                <div className="section-tooltip">
+                  {sectionTooltips[section]}
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
@@ -50,7 +59,8 @@ CircularNav.propTypes = {
   sections: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentSection: PropTypes.number.isRequired,
   onSectionChange: PropTypes.func.isRequired,
-  activeFilter: PropTypes.string
+  activeFilter: PropTypes.string,
+  sectionTooltips: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default CircularNav; 

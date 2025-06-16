@@ -209,11 +209,6 @@
 
 .moon:hover {
   filter: drop-shadow(0 0 30px rgba(107, 73, 132, 0.6));
-  transform: scale(1.05) translateX(50%);
-}
-
-.moon.left-moon:hover {
-  transform: scale(1.05) translateX(-50%);
 }
 
 .page-inactive {
