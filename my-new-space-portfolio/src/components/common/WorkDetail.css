@@ -233,14 +233,20 @@ body.work-detail-view .navigation {
 }
 
 .work-image-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  position: relative;
   width: 100%;
   max-width: 800px;
-  position: relative;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.work-image-item iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  display: block;
 }
 
 .work-image-item:hover {
@@ -253,8 +259,7 @@ body.work-detail-view .navigation {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
-  max-height: 600px;
+  border-radius: 12px;
 }
 
 .image-caption {

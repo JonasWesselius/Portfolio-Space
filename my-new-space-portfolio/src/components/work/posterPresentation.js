@@ -47,7 +47,7 @@ export const posterPresentationWork = {
     {
       url: "https://alftdwqpdca8de6d.public.blob.vercel-storage.com/work/posterIMA/design/Poster%20IMA%20Final-MhO9PWoYCfn3OsU21VCMuRJqDRI0fj.png",
       title: "Findings and Recommendations",
-      caption: "Final poster design showing the overall layout and visual approach"
+      caption: "Final poster design showing the overall layout and visual approach, based on the chosen design and redesigned by me"
     },
     // Production Process Images
     {

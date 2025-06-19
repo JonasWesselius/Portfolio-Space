@@ -14,6 +14,8 @@ import { careerDay } from '../work/career';
 import { swotAnalysisWork } from '../work/swot';
 import { projectCodingWork } from '../work/projectCoding';
 import { internshipWork } from '../work/iternship';
+import { finalPresentationWork } from '../work/finalPresentation';
+import { reflectionWork } from '../work/reflection';
 import AudioPlayer from './AudioPlayer';
 import './WorkDetail.css';
 
@@ -32,6 +34,8 @@ const workContent = {
   'swot-analysis': swotAnalysisWork,
   'project-coding': projectCodingWork,
   'internship': internshipWork,
+  'final-presentation': finalPresentationWork,
+  'reflection': reflectionWork,
 };
 
 // Map learning outcome IDs to their section names
@@ -119,6 +123,9 @@ function WorkDetail({ title, onBack, className, workId, activeFilter }) {
     const images = groupedImages[group];
     if (!images || images.length === 0) return null;
     
+    const currentItem = images[currentImageIndices[group] || 0];
+    const isVideo = currentItem.type === 'video';
+    
     return (
       <div className="iteration-section">
         <h4>{title}</h4>
@@ -133,13 +140,23 @@ function WorkDetail({ title, onBack, className, workId, activeFilter }) {
             </button>
           )}
           <div className="work-image-item">
-            <img 
-              src={images[currentImageIndices[group] || 0].url} 
-              alt={images[currentImageIndices[group] || 0].title} 
-              className="work-image-preview" 
-            />
-            {images[currentImageIndices[group] || 0].caption && (
-              <p className="image-caption">{images[currentImageIndices[group] || 0].caption}</p>
+            {isVideo ? (
+              <iframe
+                src={currentItem.url}
+                title={currentItem.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <img 
+                src={currentItem.url} 
+                alt={currentItem.title} 
+                className="work-image-preview" 
+              />
+            )}
+            {currentItem.caption && (
+              <p className="image-caption">{currentItem.caption}</p>
             )}
             {images.length > 1 && (
               <div className="image-counter">

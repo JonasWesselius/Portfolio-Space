@@ -22,6 +22,8 @@ import { careerDay } from '../work/career';
 import { swotAnalysisWork } from '../work/swot';
 import { projectCodingWork } from '../work/projectCoding';
 import { internshipWork } from '../work/iternship';
+import { finalPresentationWork } from '../work/finalPresentation';
+import { reflectionWork } from '../work/reflection';
 
 const sections = [
   "Media Products & Design",
@@ -73,6 +75,8 @@ const workContent = {
   'swot-analysis': swotAnalysisWork,
   'project-coding': projectCodingWork,
   'internship': internshipWork,
+  'final-presentation': finalPresentationWork,
+  'reflection': reflectionWork,
 };
 
 const workItems = [
@@ -165,6 +169,18 @@ const workItems = [
     title: "Internship Search",
     image: placeholder1,
     section: 14
+  },
+  {
+    id: 'final-presentation',
+    title: "Final Presentation",
+    image: placeholder2,
+    section: 15
+  },
+  {
+    id: 'reflection',
+    title: "Project Reflection",
+    image: placeholder1,
+    section: 16
   }
 ];
 
