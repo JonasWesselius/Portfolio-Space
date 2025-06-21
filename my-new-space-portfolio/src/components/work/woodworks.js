@@ -48,7 +48,8 @@ export const woodworksWork = {
       "The form that customers need to fill in should be more visible; the text is currently too light.",
       "The services page should be directly clickable in the navigation, not just a dropdown.",
       "Start final touches and implement more images of actual work before going live."
-    ]
+    ],
+    implementation: "I have implemented the feedback by creating an image gallery for the 'meubilair' service on the website. This gallery showcases actual work examples and provides a better visual representation of the service quality. I'm currently perfecting this implementation for one service before applying the same gallery system to all other services on the website."
   }, 
   resources: [
     {

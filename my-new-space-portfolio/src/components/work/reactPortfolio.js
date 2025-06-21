@@ -110,7 +110,7 @@ The final phase focused on performance optimization and mobile responsiveness. I
     {
       url: "https://www.youtube.com/embed/01kExhEheyg?si=qafb_xhmm29eoO62",
       title: "Main Animation Design",
-      caption: "Star constellation design for better usability and visual clarity. This version was later updated on the learning outcomes page to use the space on screen more effectively.",
+      caption: "Star constellation design for better usability and visual clarity. This version was later updated to the current version on the learning outcomes page to use the space on screen more effectively.",
       group: "iteration4",
       type: "video"
     }

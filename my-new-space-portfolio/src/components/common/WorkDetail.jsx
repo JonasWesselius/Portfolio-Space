@@ -321,6 +321,12 @@ function WorkDetail({ title, onBack, className, workId, activeFilter }) {
                     <li key={idx}>{fb}</li>
                   ))}
                 </ul>
+                {content.userTesting.implementation && (
+                  <>
+                    <h4>Implementation</h4>
+                    <p>{content.userTesting.implementation}</p>
+                  </>
+                )}
               </div>
             </>
           )}

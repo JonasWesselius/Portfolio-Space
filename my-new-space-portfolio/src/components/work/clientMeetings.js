@@ -18,11 +18,6 @@ export const clientMeetingsWork = {
   learningOutcome: "Through these client meetings, I developed strong professional communication skills and learned how to effectively manage client relationships. I gained experience in facilitating productive discussions, documenting decisions, and ensuring clear understanding between all parties.",
   learningOutcomes: [
     {
-      id: "media-products",
-      title: "You create engaging concepts and translate them into interactive validated media products by applying user-centered design principles, visual design techniques and by exploring emerging technologies.",
-      explanation: "Through our visit to the Simpelveld Asylum Seekers Center, we gathered direct user insights through seven interviews with our target audience. This first-hand interaction helped validate our personas and ensure our design decisions were truly user-centered."
-    },
-    {
       id: "professional",
       title: "Professional standard: Individually and in teams, you will apply a methodological approach used by the field to formulate project goals, involve stakeholders, conduct action-oriented research, advise, take decisions and report. In take into account ethical, intercultural and sustainable considerations.",
       explanation: "Our professional approach, from preparing interviews to conducting on-site research at the asylum center, demonstrated strong methodological skills. The positive response from our client, suggesting a potential business plan, validates our professional conduct and thorough stakeholder engagement."
